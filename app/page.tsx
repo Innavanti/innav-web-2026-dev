@@ -86,10 +86,10 @@ export default function Home() {
         <section className="snap-start h-screen">
           <PropuestaValor />
         </section>
-
         <section className="snap-start h-screen">
           <ProcesoComp />
         </section>
+        {/*
 
         <section className="snap-start h-screen">
           <Casos />
@@ -97,7 +97,7 @@ export default function Home() {
 
         <section className="snap-start h-screen">
           <Form3 />
-        </section>
+        </section> */}
       </GlobalBackground>
     </main>
   );
