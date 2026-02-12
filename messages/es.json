@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "scrollText": "Scroll para Descubrir...",
+    "navContact": "Conversemos",
+    "links": {
+      "aboutUs": "Nosotros",
+      "services": "Servicios",
+      "contact": "Contacto"
+    },
+    "menuList": {
+      "soluciones": "Soluciones",
+      "enfoque": "Enfoque",
+      "proceso": "Proceso",
+      "casos": "Casos",
+      "conectar": "Conectar"
+    }
+  },
+  "HomePage": {
+    "title": {
+      "1": "La tecnología",
+      "2": "puede hacer mucho más por tu empresa...",
+      "3": "TECNOLOGÍA PENSADA PARA OPERAR Y ESCALAR"
+    },
+    "bottomLinks": {
+      "apps": "Apps",
+      "web": "Web",
+      "assistants": "Asistentes",
+      "automation": "Automatización"
+    },
+
+    "subtitle": "Diseñamos soluciones que ordenan procesos, optimizan operaciones y permiten escalar con control.",
+    "scrollText": "Scroll para Descubrir...",
+    "AboutUsSection": {
+      "title": "Nosotros"
+    },
+    "ServicesSection": {
+      "title": "Soluciones",
+      "description": "Tecnología aplicada con criterio para mejorar la operación de tu empresa.",
+      "buttonText": "EXPLORAR LA SOLUCIÓN",
+      "Services": {
+        "1": {
+          "title": "Desarrollo de Apps",
+          "solution": {
+            "type": "Soluciones",
+            "title": "Desarrollo de Aplicaciones Móviles",
+            "descTitle": "SOLUCIONES CONFIABLES PARA OPERAR Y ESCALAR",
+            "desc": "Desarrollamos aplicaciones a la medida, alineadas a tus procesos de negocio y pensadas para funcionar de forma estable y crecer contigo."
+          }
+        },
+        "2": {
+          "title": "Desarrollo web",
+          "solution": {
+            "type": "Soluciones",
+            "title": "Desarrollo de plataformas web",
+            "descTitle": "Plataformas pensadas para operar con claridad y control",
+            "desc": "Desarrollamos plataformas web a la medida que organizan procesos, integran sistemas y permiten operar con control a medida que el negocio crece."
+          }
+        },
+        "3": {
+          "title": "Desarrollo de asistentes virtuales",
+          "solution": {
+            "type": "Servicios",
+            "title": "Desarrollo de Asistentes Virtuales",
+            "descTitle": "Automatización conversacional con propósito.",
+            "desc": "Diseñamos chatbots que se integran a tus procesos para atender, automatizar y reducir carga operativa de forma controlada y eficiente."
+          }
+        },
+        "4": {
+          "title": "Automatización tecnológica para empresas",
+          "solution": {
+            "type": "Soluciones",
+            "title": "Automatización Tecnológica para Empresas",
+            "descTitle": "Procesos más claros, eficientes y controlados.",
+            "desc": "Implementamos automatizaciones que conectan sistemas, reducen tareas manuales y mejoran la operación diaria de forma estable y eficiente."
+          }
+        }
+      }
+    }
+  },
+  "ContextComp": {
+    "text": "CUANDO LA TECNOLOGÍA NO ESTÁ BIEN INTEGRADA, EL NEGOCIO SE FRENA.",
+    "subtext": "Muchas empresas invierten en herramientas digitales, plataformas y sistemas, pero terminan con procesos fragmentados, información dispersa y operaciones difíciles de escalar.",
+    "CardList": {
+      "1": {
+        "title": "Procesos manuales y repetitivos."
+      },
+      "2": {
+        "title": "Soluciones que no escalan."
+      },
+      "3": {
+        "title": "Sistemas que no se comunican entre sí."
+      },
+      "4": {
+        "title": "Falta de visibilidad operativa."
+      }
+    }
+  },
+  "PropuestaValor": {
+    "title": "UN ENFOQUE PENSADO PARA OPERAR Y ESCALAR",
+    "subtitle": "Diseñamos soluciones tecnológicas entendiendo primero el negocio, priorizando claridad e integración para asegurar resultados sostenibles.",
+    "ConocenosButton": "Conócenos",
+    "bottomText": {
+      "p1": "Nuestro enfoque busca que la tecnología deje de ser un reto ",
+      "p2": "y se convierta en una ventaja operativa real"
+    },
+
+    "cards": {
+      "1": {
+        "title": "Entendimiento antes de ejecución",
+        "desc": "Analizamos procesos y objetivos para diseñar soluciones alineadas al negocio."
+      },
+      "2": {
+        "title": "Diseño pensado para operar",
+        "desc": "Soluciones claras y estables, pensadas para operar desde el primer día."
+      },
+      "3": {
+        "title": "Integración y escalabilidad",
+        "desc": "Sistemas integrados, pensados para crecer de forma ordenada."
+      }
+    }
+  },
+  "ProcesoComp": {
+    "title": "ASÍ ASEGURAMOS CONTROL EN CADA ETAPA",
+    "subtitle": "Cada proyecto sigue un proceso estructurado que asegura control, claridad y entregas alineadas al negocios.",
+    "items": {
+      "1": {
+        "title": "Diagnóstico & Entendimiento",
+        "desc": "Analizamos contexto, procesos y objetivos para definir el alcance correcto desde el inicio."
+      },
+      "2": {
+        "title": "Definición Estratégica",
+        "desc": "Convertimos el diagnóstico en una solución clara, priorizando funcionalidad e integración."
+      },
+      "3": {
+        "title": "Diseño & Desarrollo",
+        "desc": "Construimos la solución con foco en estabilidad, claridad operativa y buenas prácticas técnicas."
+      },
+      "4": {
+        "title": "Implementación & Validación",
+        "desc": "Integramos y validamos la solución para asegurar resultados."
+      },
+      "5": {
+        "title": "Seguimiento & Evolución",
+        "desc": "Acompañamos la solución para asegurar su correcto funcionamiento y evolución."
+      }
+    },
+    "bottomText": {
+      "1": "Este proceso asegura el control, ",
+      "2": "cumplimiento y soluciones que funcionan en la operación."
+    }
+  },
+  "Casos": {
+    "title": "CASOS VALIDADOS",
+    "subtitle": "Hemos aplicado nuestro enfoque en empresas que buscan ordenar su operación, integrar tecnología y escalar con control.",
+    "bottom1": "Cada proyecto refleja soluciones claras,",
+    "bottom2": "procesos definidos y resultados sostenibles.",
+    "items": {
+      "1": {
+        "title": "Huho",
+        "desc": "Real State",
+        "type": "Desarrollo Web"
+      },
+      "2": {
+        "title": "Prolub",
+        "desc": "Lubricantes Industriales",
+        "type": "Desarrollo Web"
+      },
+      "3": {
+        "title": "GIA",
+        "desc": "Seguridad Privada",
+        "type": "Desarrollo Web"
+      },
+      "4": {
+        "title": "Arqui. Garnica",
+        "desc": "Marca Personal",
+        "type": "E-commerce"
+      }
+    }
+  },
+  "Form": {
+    "title": "ESTAMOS LISTOS PARA ENTENDER TU RETO",
+    "subtitle": "Cuéntanos sobre tu proyecto y te contactaremos para entender el contexto y definir los siguientes pasos.",
+    "subtext": "Sin compromisos. Sin propuestas genéricas.",
+    "socialText": "Otros canales de contacto",
+    "labels": {
+      "name": "Nombre",
+      "namePH": "Tu Nombre Completo",
+      "company": "Empresa",
+      "companyPH": "Nombre de tu empresa",
+      "email": "Correo Electrónico",
+      "emailPH": "tu@empresa.com",
+      "message": "Breve descripción del reto",
+      "messagePH": "Describe tu proyecto o necesidad empresarial",
+      "send": "Enviar consulta"
+    },
+    "copyright": "2026 Innavanti. Todos los derechos reservados."
+  }
+}

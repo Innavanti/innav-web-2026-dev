@@ -1,0 +1,196 @@
+{
+  "nav": {
+    "scrollText": "Scroll to Explore...",
+    "navContact": "Let’s Talk",
+    "links": {
+      "aboutUs": "About Us",
+      "services": "Services",
+      "contact": "Contact"
+    },
+    "menuList": {
+      "soluciones": "Solutions",
+      "enfoque": "Approach",
+      "proceso": "Process",
+      "casos": "Case Studies",
+      "conectar": "Connect"
+    }
+  },
+  "HomePage": {
+    "title": {
+      "1": "Technology",
+      "2": "can do so much more for your business...",
+      "3": "TECHNOLOGY BUILT TO OPERATE AND SCALE"
+    },
+    "bottomLinks": {
+      "apps": "Apps",
+      "web": "Web",
+      "assistants": "Assistants",
+      "automation": "Automation"
+    },
+    "subtitle": "We design solutions that streamline processes, optimize operations, and help your business scale with control.",
+    "scrollText": "Scroll to Explore...",
+    "AboutUsSection": {
+      "title": "About Us"
+    },
+    "ServicesSection": {
+      "title": "Solutions",
+      "description": "Technology applied with strategy to improve your company’s operations.",
+      "buttonText": "EXPLORE THE SOLUTION",
+      "Services": {
+        "1": {
+          "title": "App Development",
+          "solution": {
+            "type": "Solutions",
+            "title": "Custom Mobile App Development",
+            "descTitle": "RELIABLE SOLUTIONS BUILT TO OPERATE AND SCALE",
+            "desc": "We develop custom mobile applications aligned with your business processes, designed to run smoothly and grow with you."
+          }
+        },
+        "2": {
+          "title": "Web Development",
+          "solution": {
+            "type": "Solutions",
+            "title": "Custom Web Platform Development",
+            "descTitle": "Platforms built for clarity and operational control",
+            "desc": "We build custom web platforms that organize processes, integrate systems, and enable controlled growth as your business expands."
+          }
+        },
+        "3": {
+          "title": "Virtual Assistant Development",
+          "solution": {
+            "type": "Services",
+            "title": "Virtual Assistant Development",
+            "descTitle": "Purpose-driven conversational automation.",
+            "desc": "We design chatbots that integrate into your processes to support, automate, and reduce operational workload in a structured and efficient way."
+          }
+        },
+        "4": {
+          "title": "Business Process Automation",
+          "solution": {
+            "type": "Solutions",
+            "title": "Technology Automation for Businesses",
+            "descTitle": "Clearer, more efficient, and controlled processes.",
+            "desc": "We implement automation systems that connect platforms, reduce manual tasks, and improve daily operations in a stable and scalable way."
+          }
+        }
+      }
+    }
+  },
+  "ContextComp": {
+    "text": "WHEN TECHNOLOGY ISN’T PROPERLY INTEGRATED, BUSINESS SLOWS DOWN.",
+    "subtext": "Many companies invest in digital tools, platforms, and systems, but end up with fragmented processes, scattered information, and operations that are difficult to scale.",
+    "CardList": {
+      "1": {
+        "title": "Manual and repetitive processes."
+      },
+      "2": {
+        "title": "Solutions that don’t scale."
+      },
+      "3": {
+        "title": "Systems that don’t communicate with each other."
+      },
+      "4": {
+        "title": "Lack of operational visibility."
+      }
+    }
+  },
+  "PropuestaValor": {
+    "title": "AN APPROACH BUILT TO OPERATE AND SCALE",
+    "subtitle": "We design technology solutions by first understanding your business, prioritizing clarity and integration to ensure sustainable results.",
+    "ConocenosButton": "Learn More",
+    "bottomText": {
+      "p1": "Our approach ensures technology stops being a challenge ",
+      "p2": "and becomes a real operational advantage."
+    },
+    "cards": {
+      "1": {
+        "title": "Understanding Before Execution",
+        "desc": "We analyze your processes and goals to design solutions aligned with your business."
+      },
+      "2": {
+        "title": "Designed for Real Operations",
+        "desc": "Clear and stable solutions built to operate effectively from day one."
+      },
+      "3": {
+        "title": "Integration & Scalability",
+        "desc": "Integrated systems designed to grow in a structured and sustainable way."
+      }
+    }
+  },
+  "ProcesoComp": {
+    "title": "HOW WE ENSURE CONTROL AT EVERY STAGE",
+    "subtitle": "Every project follows a structured process that guarantees control, clarity, and deliverables aligned with your business goals.",
+    "items": {
+      "1": {
+        "title": "Discovery & Assessment",
+        "desc": "We analyze context, processes, and objectives to define the right scope from the start."
+      },
+      "2": {
+        "title": "Strategic Definition",
+        "desc": "We transform insights into a clear solution, prioritizing functionality and integration."
+      },
+      "3": {
+        "title": "Design & Development",
+        "desc": "We build the solution with a focus on stability, operational clarity, and strong technical standards."
+      },
+      "4": {
+        "title": "Implementation & Validation",
+        "desc": "We integrate and validate the solution to ensure measurable results."
+      },
+      "5": {
+        "title": "Ongoing Support & Evolution",
+        "desc": "We support the solution to ensure continued performance and long-term growth."
+      }
+    },
+    "bottomText": {
+      "1": "This process ensures control, ",
+      "2": "accountability, and solutions that truly work in daily operations."
+    }
+  },
+  "Casos": {
+    "title": "PROVEN CASE STUDIES",
+    "subtitle": "We’ve applied our approach in companies looking to streamline operations, integrate technology, and scale with control.",
+    "bottom1": "Each project reflects clear solutions,",
+    "bottom2": "defined processes, and sustainable results.",
+    "items": {
+      "1": {
+        "title": "Huho",
+        "desc": "Real Estate",
+        "type": "Web Development"
+      },
+      "2": {
+        "title": "Prolub",
+        "desc": "Industrial Lubricants",
+        "type": "Web Development"
+      },
+      "3": {
+        "title": "GIA",
+        "desc": "Private Security",
+        "type": "Web Development"
+      },
+      "4": {
+        "title": "Arqui. Garnica",
+        "desc": "Personal Brand",
+        "type": "E-commerce"
+      }
+    }
+  },
+  "Form": {
+    "title": "WE’RE READY TO UNDERSTAND YOUR CHALLENGE",
+    "subtitle": "Tell us about your project and we’ll reach out to understand the context and define the next steps.",
+    "subtext": "No commitments. No generic proposals.",
+    "socialText": "Other contact channels",
+    "labels": {
+      "name": "Name",
+      "namePH": "Your Full Name",
+      "company": "Company",
+      "companyPH": "Your Company Name",
+      "email": "Email Address",
+      "emailPH": "you@company.com",
+      "message": "Brief Description of the Challenge",
+      "messagePH": "Describe your project or business need",
+      "send": "Submit Inquiry"
+    },
+    "copyright": "2026 Innavanti. All rights reserved."
+  }
+}
