@@ -69,18 +69,20 @@ export const ProcesoComp = () => {
   return (
     <main
       ref={sectionRef}
-      className="w-screen h-full min-h-screen flex justify-center pt-24"
+      className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24"
     >
-      <article className="px-[10vw] flex flex-col items-center justify-center gap-10">
-        <div className="w-full h-fit flex flex-row items-start justify-between">
-          <h1 className="w-1/2 font-bold text-5xl">{t("title")}</h1>
-          <p className="w-full max-w-80 font-light leading-7">
+      <article className="px-[10vw] flex flex-col items-center justify-center gap-5 lg:gap-10 h-full lg:h-auto">
+        <div className="w-full h-fit flex flex-col lg:flex-row items-start justify-between gap-4">
+          <h1 className="w-full lg:w-1/2 font-bold text-3xl lg:text-5xl">
+            {t("title")}
+          </h1>
+          <p className="w-full max-w-80 font-light leading-5 lg:leading-7">
             {t("subtitle")}
           </p>
         </div>
 
         <motion.ul
-          className="w-full overflow-hidden p-1.5 grid grid-cols-1 grid-rows-none gap-3 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2 py-2"
+          className="w-full h-fit lg:overflow-hidden p-1.5 grid grid-cols-1 grid-rows-none gap-3 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2 py-2"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
@@ -156,7 +158,7 @@ export const ProcesoComp = () => {
           />
         </motion.ul>
 
-        <p className="w-full text-[18px]">
+        <p className="w-full text-[18px] hidden lg:block">
           {t("bottomText.1")}
           <span className="text-white font-bold">{t("bottomText.2")}</span>
         </p>
