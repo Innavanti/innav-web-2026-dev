@@ -24,7 +24,7 @@ export const LangSwitcher2 = () => {
 
   return (
     <button
-      className="flex flex-row border bg-white/5 backdrop-blur-sm rounded-full w-full max-w-24 px-3 py-1 h-full lg:text-sm aspect-16/11 items-center justify-evenly gap-3 cursor-pointer"
+      className="flex flex-row border bg-white/5 backdrop-blur-sm rounded-full w-full max-w-24 max-h-10 px-3 py-1 h-full lg:text-sm aspect-16/11 items-center justify-evenly gap-3 cursor-pointer"
       onClick={() => setLocale(isEn ? "es" : "en")}
     >
       <div className="aspect-square w-auto h-full rounded-full relative">
