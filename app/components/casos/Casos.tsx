@@ -43,20 +43,22 @@ export const Casos = () => {
           className="flex items-center justify-center flex-col w-full h-full"
         ></Vortex>
       </div>
-      <div className="w-full flex h-full max-h-[70vh] relative flex-row justify-around px-[10vw] gap-10 pt-24 z-30">
-        <section className="w-1/2 h-full px-2 py- flex flex-col justify-between">
-          <div className="text-lg gap-10 flex flex-col">
-            <h1 className="text-5xl font-bold">{t("title")}</h1>
-            <p className="font-light leading-7">{t("subtitle")}</p>
+      <div className="w-full flex h-full lg:max-h-[70vh] relative flex-col lg:flex-row justify-around px-[5vw] lg:px-[10vw] gap-6 lg:gap-10 pt-20 lg:pt-24 z-30">
+        <section className="w-full h-fit lg:w-1/2 lg:h-full lg:px-2 flex flex-col justify-between">
+          <div className="text-lg gap-4 lg:gap-10 flex flex-col">
+            <h1 className="text-2xl lg:text-5xl font-bold">{t("title")}</h1>
+            <p className="text-sm leading-5 font-light lg:leading-7 ">
+              {t("subtitle")}
+            </p>
           </div>
-          <div className="">
+          <div className="hidden lg:flex">
             <p className="">
               {t("bottom1")} <br />
               <span className="text-primary-1-500">{t("bottom2")}</span>
             </p>
           </div>
         </section>
-        <section className="w-full h-full flex flex-col justify-evenly pl-[10%] gap-3 z-30">
+        <section className="w-full h-full flex flex-col justify-evenly lg:pl-[10%] gap-3 z-30">
           {CasosList.map((caso, index) => (
             <Caso key={index} {...caso} />
           ))}

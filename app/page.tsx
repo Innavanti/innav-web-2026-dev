@@ -89,11 +89,11 @@ export default function Home() {
         <section className="snap-start lg:h-screen">
           <ProcesoComp />
         </section>
-        {/*
 
         <section className="snap-start h-screen">
           <Casos />
         </section>
+        {/*
 
         <section className="snap-start h-screen">
           <Form3 />

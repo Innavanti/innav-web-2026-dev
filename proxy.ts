@@ -4,11 +4,11 @@ import { routing } from "@/i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
   const lowercasePath = pathname.toLowerCase();
 
-  // 🔁 Redirige solo si hay mayúsculas
+  // 🔁 Redirect only if there are uppercase chars
   if (pathname !== lowercasePath) {
     const url = request.nextUrl.clone();
     url.pathname = lowercasePath;
@@ -16,7 +16,7 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  // ✅ Deja que next-intl resuelva locale (sin prefijo)
+  // ✅ Let next-intl resolve locale (no prefix)
   return intlMiddleware(request);
 }
 
