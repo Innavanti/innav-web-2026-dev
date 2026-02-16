@@ -70,16 +70,16 @@ export const SlideComponent = ({
     <main
       ref={ref}
       id={id}
-      className="w-screen h-screen flex justify-center items-center relative overflow-hidden  px-[10vw]"
+      className="w-screen h-screen flex justify-center items-center relative overflow-hidden px-[10vw]"
     >
       <motion.article
-        className="w-full h-full flex flex-col lg:flex-row justify-around lg:gap-0 lg:items-center relative"
+        className="w-full h-fit py-20 flex flex-col lg:flex-row lg:justify-around lg:gap-0 lg:items-center relative "
         style={{ scale, y }}
       >
         {/* Title */}
-        <div className="w-full my-20 lg:m-0 h-fit lg:w-fit lg:h-fit relative flex lg:absolute left-[0%] top-[10%] lg:top-[20%]">
+        <div className="w-full lg:m-0 h-fit lg:w-fit lg:h-fit relative flex lg:absolute left-[0%] lg:top-[20%]">
           <motion.h1
-            className="text-5xl lg:text-7xl uppercase font-semibold"
+            className="text-4xl lg:text-7xl uppercase font-semibold"
             style={{ scale: textScale }}
           >
             {title}
@@ -88,7 +88,7 @@ export const SlideComponent = ({
 
         {/* Image */}
         {image && (
-          <div className="w-full relative mb-10 lg:max-w-[75vw] xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex lg:absolute inset-0 m-auto pointer-events-none">
+          <div className="w-full  h-auto relative mb-10 lg:max-w-[75vw] xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex lg:absolute inset-0 m-auto pointer-events-none">
             {/* <Image
               src={image}
               alt="Background element"
@@ -104,10 +104,10 @@ export const SlideComponent = ({
         <motion.div
           animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="flex relative w-full h-full lg:h-full"
+          className="flex flex-col gap-5 relative w-full h-fit lg:h-full"
         >
           {solution?.type && (
-            <div className="lg:flex flex-row gap-4 absolute bottom-[25%] left-0 px-1.5 hidden ">
+            <div className="lg:flex flex-row gap-4 absolute bottom-[25%] left-0 px-1.5 hidden">
               <p className="outline outline-primary-1-500 px-2 rounded-full">
                 {solution.type}
               </p>
@@ -115,7 +115,7 @@ export const SlideComponent = ({
             </div>
           )}
 
-          <div className="lg:aspect-17/8 lg:max-w-87.5 w-full lg:absolute bottom-[10%] flex flex-col gap-3 right-0 ">
+          <div className="lg:aspect-17/8 lg:max-w-87.5 w-full lg:absolute bottom-[10%] flex flex-col gap-3 right-0 h-fit lg:h-auto">
             <h1 className="uppercase font-bold text-primary-1-500">
               {solution?.descTitle}
             </h1>
@@ -124,7 +124,7 @@ export const SlideComponent = ({
 
           {href && (
             <Link href={href} target={target} className="group">
-              <button className="px-5 py-2 flex flex-row items-center absolute bottom-[20%] lg:bottom-[5%] inset-x-0 w-fit m-auto bg-white text-slate-950 font-semibold text-sm tracking-wide uppercase rounded-full hover:bg-slate-700 hover:text-white transition-colors duration-300">
+              <button className="px-5 py-2 flex flex-row items-center relative lg:absolute bottom-[20%] lg:bottom-[5%] inset-x-0 w-fit m-auto bg-white text-slate-950 font-semibold text-sm tracking-wide uppercase rounded-full hover:bg-slate-700 hover:text-white transition-colors duration-300">
                 {t("buttonText")}
                 <FiArrowRight
                   size={19}

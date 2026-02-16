@@ -1,14 +1,14 @@
 "use client";
 import { useTranslations } from "next-intl";
-import ContextComp from "./components/contextComp/ContextComp";
-import PropuestaValor from "./components/propuestaValor/PropuestaValor";
-import ProcesoComp from "./components/procesoComp/ProcesoComp";
-import Casos from "./components/casos/Casos";
-import { GlobalBackground } from "./components/ui/globalBackground/GlobalBackground";
-import SlideComponent from "./components/slideComponent/SlideComponent";
-import Form3 from "./components/form/Form3";
+import ContextComp from "../components/contextComp/ContextComp";
+import PropuestaValor from "../components/propuestaValor/PropuestaValor";
+import ProcesoComp from "../components/procesoComp/ProcesoComp";
+import Casos from "../components/casos/Casos";
+import { GlobalBackground } from "../components/ui/globalBackground/GlobalBackground";
+import SlideComponent from "../components/slideComponent/SlideComponent";
+import Form3 from "../components/form/Form3";
 import { useRef } from "react";
-import NewHeroWithLogo from "./components/hero/Hero11";
+import NewHeroWithLogo from "../components/hero/Hero11";
 
 export default function Home() {
   const t = useTranslations("HomePage");
@@ -93,11 +93,10 @@ export default function Home() {
         <section className="snap-start h-screen">
           <Casos />
         </section>
-        {/*
 
-        <section className="snap-start h-screen">
+        <section className="snap-start lg:h-screen">
           <Form3 />
-        </section> */}
+        </section>
       </GlobalBackground>
     </main>
   );
