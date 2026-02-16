@@ -2,7 +2,13 @@
 
 import { useTranslations } from "next-intl";
 import React, { useLayoutEffect, useRef, useState } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { HiOutlineCursorClick } from "react-icons/hi";
 import { TbUnlink } from "react-icons/tb";
 import { FiEyeOff, FiPhoneOff } from "react-icons/fi";
@@ -43,9 +49,11 @@ export const ContextComp = ({
 
   const screenHeight = CardList.length * 100;
 
-  const startX = typeof window !== "undefined" ? window.innerWidth : 0;
+  const x = useTransform(scrollYProgress, [0, 0.95], ["200vw", "-200vw"]);
 
-  const x = useTransform(scrollYProgress, [0, 0.7], [startX, 1]);
+  useMotionValueEvent(scrollYProgress, "change", () => {
+    console.log(scrollYProgress.get());
+  });
 
   return (
     <main
@@ -63,7 +71,7 @@ export const ContextComp = ({
             <p>{t("subtext")}</p>
           </section>
         </div>
-        <div className="w-full h-full relative bg-blue-400 lg:hidden overflow-x-hidden">
+        <div className="w-full h-full relative lg:absolute bg-blue-400/0 lg:hidde overflow-x-hidden">
           <motion.div
             ref={trackRef}
             className="w-screen h-full lg:h-fit flex flex-row gap-20 justify-center lg:absolute bottom-[10%] left-0 m-auto items-center"
@@ -76,7 +84,7 @@ export const ContextComp = ({
         </div>
       </article>
 
-      <div className="w-screen hidden h-full relative lg:sticky top-0 inset-x-0 m-auto overflow-hidden lg:h-screen lg:flex items-start ">
+      {/* <div className="w-screen hidden h-full relative lg:sticky top-0 inset-x-0 m-auto overflow-hidden lg:h-screen lg:flex items-start ">
         <motion.div
           ref={trackRef}
           className="w-screen h-full lg:h-fit flex flex-row gap-20 justify-center lg:absolute bottom-[10%] left-0 m-auto items-center"
@@ -86,7 +94,7 @@ export const ContextComp = ({
             <ContextCard key={index} {...card} />
           ))}
         </motion.div>
-      </div>
+      </div> */}
     </main>
   );
 };
