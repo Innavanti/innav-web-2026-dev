@@ -10,12 +10,8 @@ import { SparklesCore } from "../sparklesCore/SparklesCore";
 
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import {
-  FiGlobe,
-  FiMessageCircle,
-  FiSettings,
-  FiSmartphone,
-} from "react-icons/fi";
+import { FiGlobe, FiSettings, FiSmartphone } from "react-icons/fi";
+import { CgBot } from "react-icons/cg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,7 +33,7 @@ export const HeroAnimated = () => {
       hrefMobile: "/",
     },
     {
-      icon: <FiMessageCircle />,
+      icon: <CgBot />,
       title: t("bottomLinks.assistants"),
       href: "#assistants",
       hrefMobile: "/",
@@ -91,7 +87,7 @@ export const HeroAnimated = () => {
           <SparklesCore particleDensity={25} overscanY={220} />
         </div>
       </article>
-      <section className="w-full md:max-w-[70vw] lg:max-w-max lg:w-fit h-fit grid grid-cols-2 justify-items-center lg:flex flex-row justify-center px-[3%] lg:px-[10vw] absolute bottom-[7%] inset-x-0 m-auto gap-5 lg:gap-10">
+      <section className=" lg:max-h-10 w-full md:max-w-[70vw] grid grid-cols-2 auto-rows-fr items-stretch justify-items-stretch px-[3%] absolute bottom-[7%] inset-x-0 m-auto gap-5 lg:max-w-max lg:w-fit lg:flex lg:flex-row lg:justify-center lg:px-[10vw] lg:gap-10">
         {HomeButtons.map((button, index) => (
           <HomeButton key={index} {...button} />
         ))}
@@ -231,7 +227,7 @@ export const NewHeroWithLogo = () => {
         ref={logoWrapperRef}
         className="absolute h-fit lg:h-full top-[15%] lg:inset-0 m-auto z-30 w-fit opacity-0 pointer-events-none"
       >
-        <div className="relative w-[80vw]  md:min-w-[35vw] md:max-w-175 aspect-video ">
+        <div className="relative w-[80vw] md:min-w-[35vw] md:max-w-175 aspect-video xl:max-w-48">
           <div className="absolute inset-0 bg-[#2bb4c8]/30 blur-[80px] opacity-40 rounded-full animate-pulse" />
           <Image
             src="/assets/branding/innav-logo-v.png"
@@ -266,10 +262,15 @@ const HomeButton = ({
 }) => {
   return (
     <>
-      <div className="relative inline-block rounded-full group w-full lg:w-fit lg:min-w-37.5 h-fit cursor-pointer z-30">
+      <div
+        className="relative bg-white/10 backdrop-blur-lg rounded-full group w-full h-full lg:min-w-56 cursor-pointer z-30 outline outline-white/10 hover:outline-primary-1-500 transition-all duration-300"
+        style={{
+          backdropFilter: "blur(40px)",
+        }}
+      >
         {/* Gradient Border Layer */}
-        <div
-          className="absolute inset-0 rounded-full p-0.5 "
+        {/* <div
+          className="absolute inset-0 rounded-full p-0.5 hidden"
           style={{
             background: "linear-gradient(to bottom, #00A6F4, #615FFF)",
             WebkitMask:
@@ -277,19 +278,19 @@ const HomeButton = ({
             WebkitMaskComposite: "xor",
             maskComposite: "exclude",
           }}
-        />
+        /> */}
 
         <Link
-          className="lg:hidden w-full justify-center flex flex-row items-center px-2 py-3 gap-1 bg-primary-2-500/10 backdrop-blur-3xl text-white rounded-full overflow-hidden relative"
+          className="lg:hidden w-full h-full flex items-center justify-center px-3 py-3 gap-2 not-visited:text-white rounded-full overflow-hidden relative"
           href={hrefMobile}
         >
-          {icon}
-          <p className="relative  text-sm font-bold uppercase text-white transition-colors duration-300 ">
+          <div>{icon}</div>
+          <p className="relative w-fit h-fit text-sm font-bold uppercase text-white transition-colors duration-300 ">
             {title}
           </p>
         </Link>
         <Link
-          className="hidden w-full justify-center lg:flex flex-row items-center px-5 py-3 gap-2 bg-primary-2-500/10 backdrop-blur-3xl text-white rounded-full overflow-hidden relative"
+          className="hidden w-full justify-center lg:flex flex-row items-center px-4 py-2 gap-2 text-white rounded-full overflow-hidden relative"
           href={href}
         >
           {icon}

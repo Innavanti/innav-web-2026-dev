@@ -5,7 +5,7 @@ import LangSwitcher2 from "../langSwitcher/LangSwitcher2";
 import { useTranslations } from "next-intl";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CgMenu } from "react-icons/cg";
 import { FiX } from "react-icons/fi";
 
@@ -76,7 +76,7 @@ export const NavMobile = ({
         <div className="h-24 py-3 w-full flex flex-row justify-between items-center relative px-[5vw]">
           <LogoWithURl href="/" target="_self" className="z-999" />
           <button
-            className="h-full max-h-10 w-auto aspect-square bg-white/20 backdrop-blur-2xl rounded-full relative  text-primary-1-500 z-999 pointer-events-auto"
+            className="h-full max-h-10 w-auto aspect-square bg-white/20 backdrop-blur-lg rounded-full relative  text-primary-1-500 z-999 pointer-events-auto"
             onClick={() => setisOpen(!isOpen)}
           >
             {isOpen ? (
