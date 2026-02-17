@@ -12,7 +12,9 @@ import NewHeroWithLogo from "../components/hero/Hero11";
 
 export default function Home() {
   const t = useTranslations("HomePage");
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollRef = useRef<HTMLElement | null>(null);
+
   const Services = [
     {
       id: "apps",
@@ -27,7 +29,6 @@ export default function Home() {
     {
       id: "web",
       title: t("ServicesSection.Services.2.title"),
-      // image: "/assets/slides/desarollo-web.png",
       image: "/assets/slides/pc/pc_animacion_",
       solution: {
         type: t("ServicesSection.Services.2.solution.type"),
@@ -40,7 +41,6 @@ export default function Home() {
     {
       id: "assistants",
       title: t("ServicesSection.Services.3.title"),
-      // image: "/assets/slides/new-asistentes.png",
       solution: {
         type: t("ServicesSection.Services.3.solution.type"),
         title: t("ServicesSection.Services.3.solution.title"),
@@ -52,7 +52,6 @@ export default function Home() {
     {
       id: "automation",
       title: t("ServicesSection.Services.4.title"),
-      // image: "/assets/slides/desarrollo-chatbots.png",
       solution: {
         type: t("ServicesSection.Services.4.solution.type"),
         title: t("ServicesSection.Services.4.solution.title"),
@@ -77,11 +76,15 @@ export default function Home() {
           <ContextComp scrollContainerRef={scrollRef} />
         </section>
 
-        {Services.map((service, i) => (
-          <section key={service.title ?? i} className="snap-start h-screen">
-            <SlideComponent scrollRef={scrollRef} {...service} />
-          </section>
-        ))}
+        {Services.map((service) => {
+          const { id, ...rest } = service;
+
+          return (
+            <section key={id} className="snap-start h-screen">
+              <SlideComponent id={id} scrollRef={scrollRef} {...rest} />
+            </section>
+          );
+        })}
 
         <section className="snap-start h-screen">
           <PropuestaValor />

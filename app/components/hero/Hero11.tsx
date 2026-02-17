@@ -23,25 +23,25 @@ export const HeroAnimated = () => {
     {
       icon: <FiSmartphone />,
       title: t("bottomLinks.apps"),
-      href: "#apps",
+      href: "/#apps",
       hrefMobile: "/",
     },
     {
       icon: <FiGlobe />,
       title: t("bottomLinks.web"),
-      href: "#web",
+      href: "/#web",
       hrefMobile: "/",
     },
     {
       icon: <CgBot />,
       title: t("bottomLinks.assistants"),
-      href: "#assistants",
+      href: "/#assistants",
       hrefMobile: "/",
     },
     {
       icon: <FiSettings />,
       title: t("bottomLinks.automation"),
-      href: "#automation",
+      href: "/#automation",
       hrefMobile: "/",
     },
   ];
