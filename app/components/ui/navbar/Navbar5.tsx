@@ -71,11 +71,12 @@ export const NavMobile = ({
   return (
     <>
       <nav
-        className={`w-screen h-screen lg:hidden absolute m-auto inset-0 z-9999 flex pointer-events-none`}
+        className={`w-screen h-screen lg:hidden absolute m-auto inset-0 z-9999 flex pointer-events-none `}
       >
-        <div className="w-full h-full relative flex">
+        <div className="h-24 py-3 w-full flex flex-row justify-between items-center relative px-[5vw]">
+          <LogoWithURl href="/" target="_self" className="z-999" />
           <button
-            className="h-full max-h-10 w-auto aspect-square bg-white/20 backdrop-blur-2xl rounded-full absolute top-[5%] right-[5%] text-primary-1-500 z-999 pointer-events-auto"
+            className="h-full max-h-10 w-auto aspect-square bg-white/20 backdrop-blur-2xl rounded-full relative  text-primary-1-500 z-999 pointer-events-auto"
             onClick={() => setisOpen(!isOpen)}
           >
             {isOpen ? (
@@ -86,12 +87,10 @@ export const NavMobile = ({
               <CgMenu size={25} className="absolute inset-0 m-auto" />
             )}
           </button>
-          <div className="h-24 py-3 w-full flex flex-row justify-between items-center px-[5vw]">
-            <LogoWithURl href="/" target="_self" />
-          </div>
         </div>
+
         <motion.div
-          className={`w-screen h-screen absolute px-[5vw] py-0 m-auto flex flex-col  pointer-events-auto pt-24  bg-linear-120 from-primary-3-900 from-60% to-primary-1-700 `}
+          className={`w-screen h-screen absolute px-[5vw] py-0 m-auto flex flex-col ${isOpen ? "pointer-events-auto" : "pointer-events-none"}  pt-24  bg-linear-120 from-primary-3-900 from-60% to-primary-1-700 `}
           // animate={{ x: isOpen ? "0" : "-100vw" }}
           animate={{
             opacity: isOpen ? 1 : 0,
@@ -134,15 +133,17 @@ export const NavMobile = ({
 const LogoWithURl = ({
   href,
   target = "_self",
+  className,
 }: {
   href: string;
   target?: string;
+  className?: string;
 }) => {
   return (
     <Link
       href={href}
       target={target}
-      className="flex h-full w-full max-w-75 justify-self-start pointer-events-auto"
+      className={`flex h-full w-full max-w-75 justify-self-start pointer-events-auto ${className}`}
     >
       <div className="relative h-full aspect-video">
         <Image

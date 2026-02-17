@@ -1,14 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import React, { useLayoutEffect, useRef, useState } from "react";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { HiOutlineCursorClick } from "react-icons/hi";
 import { TbUnlink } from "react-icons/tb";
 import { FiEyeOff, FiPhoneOff } from "react-icons/fi";
@@ -50,10 +44,6 @@ export const ContextComp = ({
   const screenHeight = CardList.length * 100;
 
   const x = useTransform(scrollYProgress, [0, 0.95], ["200vw", "-200vw"]);
-
-  useMotionValueEvent(scrollYProgress, "change", () => {
-    console.log(scrollYProgress.get());
-  });
 
   return (
     <main

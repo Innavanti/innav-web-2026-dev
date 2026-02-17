@@ -82,8 +82,6 @@ export default function LangSwitcher() {
           aria-selected={isEn}
           onClick={() => {
             setLocale("en");
-
-            console.log("Click xd");
           }}
           className={[
             "relative z-10 rounded-full",
