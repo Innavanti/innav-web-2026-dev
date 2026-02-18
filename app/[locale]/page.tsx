@@ -89,6 +89,7 @@ export default function Home() {
         <section className="snap-start h-screen">
           <PropuestaValor />
         </section>
+
         <section className="snap-start lg:h-screen">
           <ProcesoComp />
         </section>

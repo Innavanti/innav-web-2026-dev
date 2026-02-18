@@ -249,7 +249,7 @@ export const NewHeroWithLogo = () => {
   );
 };
 
-const HomeButton = ({
+export const HomeButton = ({
   title,
   href,
   hrefMobile,
@@ -262,12 +262,7 @@ const HomeButton = ({
 }) => {
   return (
     <>
-      <div
-        className="relative bg-white/10 backdrop-blur-lg rounded-full group w-full h-full lg:min-w-56 cursor-pointer z-30 outline outline-white/10 hover:outline-primary-1-500 transition-all duration-300"
-        style={{
-          backdropFilter: "blur(40px)",
-        }}
-      >
+      <div className="relative bg-white/20 backdrop-blur-xs rounded-full group w-full h-full lg:min-w-56 cursor-pointer z-30 outline outline-white/10 hover:outline-primary-1-500 transition-all duration-300">
         {/* Gradient Border Layer */}
         {/* <div
           className="absolute inset-0 rounded-full p-0.5 hidden"
