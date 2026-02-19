@@ -72,7 +72,7 @@ export const ProcesoComp = () => {
       className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24"
     >
       <article className="px-[10vw] flex flex-col items-center justify-center gap-5 lg:gap-10 h-full lg:h-auto">
-        <div className="w-full h-fit flex flex-col lg:flex-row items-start justify-between gap-4">
+        <div className="w-full h-fit flex flex-col lg:flex-row items-start justify-between gap-4 z-0">
           <h1 className="w-full lg:w-1/2 font-bold text-3xl lg:text-5xl">
             {t("title")}
           </h1>
