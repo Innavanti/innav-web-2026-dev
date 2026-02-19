@@ -4,7 +4,7 @@ import Link from "next/link";
 import LangSwitcher2 from "../langSwitcher/LangSwitcher2";
 import { useTranslations } from "next-intl";
 import { IoLogoWhatsapp } from "react-icons/io5";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { CgMenu } from "react-icons/cg";
 import { FiX } from "react-icons/fi";
@@ -88,43 +88,50 @@ export const NavMobile = ({
             )}
           </button>
         </div>
-
-        <motion.div
-          className={`w-screen h-screen absolute px-[5vw] py-0 m-auto flex flex-col ${isOpen ? "pointer-events-auto" : "pointer-events-none"}  pt-24  bg-linear-120 from-primary-3-900 from-60% to-primary-1-700 `}
-          // animate={{ x: isOpen ? "0" : "-100vw" }}
-          animate={{
-            opacity: isOpen ? 1 : 0,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 40,
-            mass: 0.9,
-          }}
-        >
-          <section className="w-full h-full flex flex-col justify-around">
-            {MenuList.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-                className={`relative text-white transition-all duration-100 ease-in-out text-3xl`}
-              >
-                <h1>{item.title}</h1>
-              </Link>
-            ))}
-          </section>
-          <section className="w-full h-full  justify-between flex flex-col py-[20%]">
-            <Link
-              href={"/"}
-              className={`px-2 py-4 uppercase font-semibold text-white text-2xl tracking-[7px] rounded-full flex flex-row items-center justify-center gap-2 bg-[#14973E]`}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className={`w-screen h-screen absolute px-[5vw] py-0 m-auto flex flex-col pt-24  bg-linear-120 from-primary-3-900 from-60% to-primary-1-700 `}
+              // animate={{ x: isOpen ? "0" : "-100vw" }}
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{
+                opacity: 0,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 40,
+                mass: 0.9,
+              }}
             >
-              <IoLogoWhatsapp size={25} />
+              <section className="w-full h-full flex flex-col justify-around">
+                {MenuList.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className={`relative text-white transition-all duration-100 ease-in-out text-3xl`}
+                  >
+                    <h1>{item.title}</h1>
+                  </Link>
+                ))}
+              </section>
+              <section className="w-full h-full  justify-between flex flex-col py-[20%]">
+                <Link
+                  href={"/"}
+                  className={`px-2 py-4 uppercase font-semibold text-white text-2xl tracking-[7px] rounded-full flex flex-row items-center justify-center gap-2 bg-[#14973E]`}
+                >
+                  <IoLogoWhatsapp size={25} />
 
-              <p>{t("navContact")}</p>
-            </Link>
-            <LangSwitcher2 />
-          </section>
-        </motion.div>
+                  <p>{t("navContact")}</p>
+                </Link>
+                <LangSwitcher2 />
+              </section>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </>
   );
