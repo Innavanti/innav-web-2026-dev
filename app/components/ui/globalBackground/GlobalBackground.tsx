@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const clamp = (v: number, min: number, max: number) =>
@@ -24,74 +24,64 @@ const COLOR_MID = "#0c7092";
 
 export function GlobalBackground({
   children,
-  minSectionHeightClass = "min-h-screen",
   scrollRef,
 }: {
   children: React.ReactNode;
-  minSectionHeightClass?: string;
-  /** ✅ el contenedor que scrollea (tu main con overflow-y-auto) */
+  /** contenedor que scrollea (tu main con overflow-y-auto) */
   scrollRef: React.RefObject<HTMLElement | null>;
 }) {
-  const sectionsRef = useRef<HTMLElement[]>([]);
   const pointCount = BG_POINTS.length;
 
   const angle = useMotionValue<number>(BG_POINTS[0].angle);
-  const angleSmooth = useSpring(angle, {
-    stiffness: 120,
-    damping: 22,
-  });
+  const angleSmooth = useSpring(angle, { stiffness: 120, damping: 22 });
 
   const backgroundImage = useTransform(angleSmooth, (a: number) => {
     return `linear-gradient(${a}deg, ${COLOR_DARK} 0%, ${COLOR_DARK} 50%, ${COLOR_MID} 100%)`;
   });
 
-  const registerSection = (el: HTMLElement | null) => {
-    if (!el) return;
-    if (!sectionsRef.current.includes(el)) {
-      sectionsRef.current.push(el);
-    }
-  };
+  // Guardamos el "viewport height" real del contenedor (no window)
+  const [vh, setVh] = useState<number>(0);
+  const rafRef = useRef<number>(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
-    let raf = 0;
+    const measure = () => {
+      const h = container.getBoundingClientRect().height || 0;
+      setVh(h);
+    };
+
+    measure();
+
+    // ResizeObserver para que cambie si tu layout cambia (sidebars, mobile address bar, etc.)
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(container);
+
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [scrollRef]);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container || !vh) return;
 
     const update = () => {
-      raf = 0;
-      const sections = sectionsRef.current;
-      if (!sections.length) return;
+      rafRef.current = 0;
 
-      const containerRect = container.getBoundingClientRect();
-      const viewportCenter = containerRect.top + containerRect.height * 0.5;
+      const scrollTop = container.scrollTop;
 
-      // 1) detectar sección activa respecto al contenedor
-      let activeSectionIdx = 0;
-      let bestDist = Infinity;
+      // "pantalla" actual
+      const page = Math.floor(scrollTop / vh);
 
-      for (let i = 0; i < sections.length; i++) {
-        const rect = sections[i].getBoundingClientRect();
-        const center = rect.top + rect.height * 0.5;
-        const dist = Math.abs(center - viewportCenter);
+      // 0..1 dentro de la pantalla
+      const t = clamp((scrollTop - page * vh) / vh, 0, 1);
 
-        if (dist < bestDist) {
-          bestDist = dist;
-          activeSectionIdx = i;
-        }
-      }
-
-      // 2) progress dentro de la sección (normalizado al alto del contenedor)
-      const rect = sections[activeSectionIdx].getBoundingClientRect();
-
-      // top relativo al viewport del contenedor (no window)
-      const topRel = rect.top - containerRect.top;
-
-      // 0..1 mientras la sección atraviesa 1 viewport de contenedor
-      const t = clamp(-topRel / containerRect.height, 0, 1);
-
-      // 3) sección -> punto cíclico
-      const p0 = ((activeSectionIdx % pointCount) + pointCount) % pointCount;
+      // cíclico
+      const p0 = ((page % pointCount) + pointCount) % pointCount;
       const p1 = (p0 + 1) % pointCount;
 
       const a0 = BG_POINTS[p0].angle;
@@ -101,23 +91,20 @@ export function GlobalBackground({
     };
 
     const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
+      if (!rafRef.current) rafRef.current = requestAnimationFrame(update);
     };
 
     update();
     container.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-
     return () => {
-      if (raf) cancelAnimationFrame(raf);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
       container.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
     };
-  }, [angle, pointCount, scrollRef]);
+  }, [angle, pointCount, scrollRef, vh]);
 
   return (
     <article className="relative">
-      {/* 🌌 BACKGROUND GLOBAL */}
+      {/* BACKGROUND GLOBAL */}
       <motion.div
         className="pointer-events-none sticky top-0 h-screen w-screen z-0"
         style={{
@@ -127,22 +114,8 @@ export function GlobalBackground({
         }}
       />
 
-      {/* 🧱 CONTENT */}
-      <div className="relative z-10 -mt-[100vh]">
-        {React.Children.map(children, (child, idx) => {
-          if (!React.isValidElement(child)) return child;
-
-          return (
-            <section
-              ref={registerSection}
-              className={minSectionHeightClass}
-              data-bg-section={idx}
-            >
-              {child}
-            </section>
-          );
-        })}
-      </div>
+      {/* contenido por encima */}
+      <div className="">{children}</div>
     </article>
   );
 }
