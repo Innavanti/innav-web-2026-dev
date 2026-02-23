@@ -9,6 +9,12 @@ import SlideComponent from "../components/slideComponent/SlideComponent";
 import Form3 from "../components/form/Form3";
 import { useRef } from "react";
 import NewHeroWithLogo from "../components/hero/Hero11";
+import {
+  AnimatedBackground_Datacenter,
+  AnimatedBackground_Desktop,
+  AnimatedBackground_Phone,
+  AnimatedBackground_PhoneNet,
+} from "../components/animatedBackground/animatedBackground";
 
 export default function Home() {
   const t = useTranslations("HomePage");
@@ -64,12 +70,25 @@ export default function Home() {
     <main
       ref={scrollRef}
       id="scroll-root"
-      className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
+      className="h-screen overflow-y-auto scroll-smooth snap-mandatory snap-y"
     >
       <GlobalBackground scrollRef={scrollRef}>
         {/* Cada sección snappea */}
-        <section className="snap-start relative">
+        <section className="relative snap-start">
           <NewHeroWithLogo />
+        </section>
+
+        <section className="relative snap-start">
+          <AnimatedBackground_Phone />
+        </section>
+        <section className="relative snap-start">
+          <AnimatedBackground_PhoneNet />
+        </section>
+        <section className="relative snap-start">
+          <AnimatedBackground_Desktop />
+        </section>
+        <section className="relative snap-start">
+          <AnimatedBackground_Datacenter />
         </section>
 
         <section className="snap-start">
@@ -80,24 +99,24 @@ export default function Home() {
           const { id, ...rest } = service;
 
           return (
-            <section key={id} className="snap-start h-screen">
+            <section key={id} className="h-screen snap-start">
               <SlideComponent id={id} scrollRef={scrollRef} {...rest} />
             </section>
           );
         })}
 
-        <section className="snap-start h-screen">
+        <section className="h-screen snap-start">
           <PropuestaValor />
         </section>
-        <section className="snap-start lg:h-screen">
+        <section className="lg:h-screen snap-start">
           <ProcesoComp />
         </section>
 
-        <section className="snap-start h-screen">
+        <section className="h-screen snap-start">
           <Casos />
         </section>
 
-        <section className="snap-start lg:h-screen">
+        <section className="lg:h-screen snap-start">
           <Form3 />
         </section>
       </GlobalBackground>
