@@ -71,7 +71,7 @@ export const NavMobile = ({
   return (
     <>
       <nav
-        className={`w-screen h-screen lg:hidden absolute m-auto inset-0 z-9999 flex pointer-events-none `}
+        className={`w-screen h-screen lg:hidden absolute m-auto inset-0 z-9999 flex pointer-events-none text-white`}
       >
         <div className="h-24 py-3 w-full flex flex-row justify-between items-center relative px-[5vw]">
           <LogoWithURl href="/" target="_self" className="z-999" />
