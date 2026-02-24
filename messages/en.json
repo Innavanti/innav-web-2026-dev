@@ -1,6 +1,6 @@
 {
   "nav": {
-    "scrollText": "Scroll to Explore...",
+    "scrollText": "Scroll to Discover...",
     "navContact": "Let’s Talk",
     "links": {
       "aboutUs": "About Us",
@@ -13,12 +13,19 @@
       "proceso": "Process",
       "casos": "Case Studies",
       "conectar": "Connect"
+    },
+    "soluciones": {
+      "title": "Solutions",
+      "1": "App Development",
+      "2": "Web Development",
+      "3": "Virtual Assistant Development",
+      "4": "Technology Automation"
     }
   },
   "HomePage": {
     "title": {
       "1": "Technology",
-      "2": "can do so much more for your business...",
+      "2": "can do much more for your business...",
       "3": "TECHNOLOGY BUILT TO OPERATE AND SCALE"
     },
     "bottomLinks": {
@@ -27,32 +34,32 @@
       "assistants": "Smart Assistant",
       "automation": "Automation"
     },
-    "subtitle": "We design solutions that streamline processes, optimize operations, and help your business scale with control.",
-    "scrollText": "Scroll to Explore...",
+    "subtitle": "We design solutions that organize processes, optimize operations, and enable controlled scalability.",
+    "scrollText": "Scroll to Discover...",
     "AboutUsSection": {
       "title": "About Us"
     },
     "ServicesSection": {
       "title": "Solutions",
-      "description": "Technology applied with strategy to improve your company’s operations.",
+      "description": "Technology applied with purpose to improve your company’s operations.",
       "buttonText": "EXPLORE THE SOLUTION",
       "Services": {
         "1": {
           "title": "App Development",
           "solution": {
             "type": "Solutions",
-            "title": "Custom Mobile App Development",
+            "title": "Mobile Application Development",
             "descTitle": "RELIABLE SOLUTIONS BUILT TO OPERATE AND SCALE",
-            "desc": "We develop custom mobile applications aligned with your business processes, designed to run smoothly and grow with you."
+            "desc": "We develop custom applications aligned with your business processes, designed to run reliably and grow with your company."
           }
         },
         "2": {
           "title": "Web Development",
           "solution": {
             "type": "Solutions",
-            "title": "Custom Web Platform Development",
+            "title": "Web Platform Development",
             "descTitle": "Platforms built for clarity and operational control",
-            "desc": "We build custom web platforms that organize processes, integrate systems, and enable controlled growth as your business expands."
+            "desc": "We build custom web platforms that organize processes, integrate systems, and allow your business to operate with control as it grows."
           }
         },
         "3": {
@@ -61,24 +68,24 @@
             "type": "Services",
             "title": "Virtual Assistant Development",
             "descTitle": "Purpose-driven conversational automation.",
-            "desc": "We design chatbots that integrate into your processes to support, automate, and reduce operational workload in a structured and efficient way."
+            "desc": "We design chatbots that integrate into your processes to support, automate, and reduce operational workload in a controlled and efficient way."
           }
         },
         "4": {
-          "title": "Business Process Automation",
+          "title": "Technology Automation for Businesses",
           "solution": {
             "type": "Solutions",
             "title": "Technology Automation for Businesses",
             "descTitle": "Clearer, more efficient, and controlled processes.",
-            "desc": "We implement automation systems that connect platforms, reduce manual tasks, and improve daily operations in a stable and scalable way."
+            "desc": "We implement automation systems that connect platforms, reduce manual tasks, and improve daily operations in a stable and efficient way."
           }
         }
       }
     }
   },
   "ContextComp": {
-    "text": "WHEN TECHNOLOGY ISN’T PROPERLY INTEGRATED, BUSINESS SLOWS DOWN.",
-    "subtext": "Many companies invest in digital tools, platforms, and systems, but end up with fragmented processes, scattered information, and operations that are difficult to scale.",
+    "text": "WHEN TECHNOLOGY IS NOT PROPERLY INTEGRATED, BUSINESS SLOWS DOWN.",
+    "subtext": "Many companies invest in digital tools, platforms, and systems but end up with fragmented processes, scattered information, and operations that are difficult to scale.",
     "CardList": {
       "1": {
         "title": "Manual and repetitive processes."
@@ -105,58 +112,58 @@
     "cards": {
       "1": {
         "title": "Understanding Before Execution",
-        "desc": "We analyze your processes and goals to design solutions aligned with your business."
+        "desc": "We analyze processes and objectives to design solutions aligned with your business."
       },
       "2": {
-        "title": "Designed for Real Operations",
+        "title": "Designed to Operate",
         "desc": "Clear and stable solutions built to operate effectively from day one."
       },
       "3": {
-        "title": "Integration & Scalability",
-        "desc": "Integrated systems designed to grow in a structured and sustainable way."
+        "title": "Integration and Scalability",
+        "desc": "Integrated systems designed to grow in an organized and sustainable way."
       }
     }
   },
   "ProcesoComp": {
     "title": "HOW WE ENSURE CONTROL AT EVERY STAGE",
-    "subtitle": "Every project follows a structured process that guarantees control, clarity, and deliverables aligned with your business goals.",
+    "subtitle": "Each project follows a structured process that ensures control, clarity, and deliverables aligned with your business.",
     "items": {
       "1": {
-        "title": "Discovery & Assessment",
+        "title": "Diagnosis & Understanding",
         "desc": "We analyze context, processes, and objectives to define the right scope from the start."
       },
       "2": {
         "title": "Strategic Definition",
-        "desc": "We transform insights into a clear solution, prioritizing functionality and integration."
+        "desc": "We turn the diagnosis into a clear solution, prioritizing functionality and integration."
       },
       "3": {
         "title": "Design & Development",
-        "desc": "We build the solution with a focus on stability, operational clarity, and strong technical standards."
+        "desc": "We build the solution with a focus on stability, operational clarity, and strong technical best practices."
       },
       "4": {
         "title": "Implementation & Validation",
-        "desc": "We integrate and validate the solution to ensure measurable results."
+        "desc": "We integrate and validate the solution to ensure results."
       },
       "5": {
         "title": "Ongoing Support & Evolution",
-        "desc": "We support the solution to ensure continued performance and long-term growth."
+        "desc": "We support the solution to ensure proper performance and long-term evolution."
       }
     },
     "bottomText": {
       "1": "This process ensures control, ",
-      "2": "accountability, and solutions that truly work in daily operations."
+      "2": "compliance, and solutions that work in real operations."
     }
   },
   "Casos": {
-    "title": "PROVEN CASE STUDIES",
-    "subtitle": "We’ve applied our approach in companies looking to streamline operations, integrate technology, and scale with control.",
+    "title": "VALIDATED CASE STUDIES",
+    "subtitle": "We have applied our approach in companies looking to organize operations, integrate technology, and scale with control.",
     "bottom1": "Each project reflects clear solutions,",
     "bottom2": "defined processes, and sustainable results.",
     "items": {
       "1": {
-        "title": "Huho",
-        "desc": "Real Estate",
-        "type": "Web Development"
+        "title": "Elite",
+        "desc": "Industrial Parks",
+        "type": "Lead Management Automation"
       },
       "2": {
         "title": "Prolub",
@@ -177,7 +184,7 @@
   },
   "Form": {
     "title": "WE’RE READY TO UNDERSTAND YOUR CHALLENGE",
-    "subtitle": "Tell us about your project and we’ll reach out to understand the context and define the next steps.",
+    "subtitle": "Tell us about your project and we’ll contact you to understand the context and define the next steps.",
     "subtext": "No commitments. No generic proposals.",
     "socialText": "Other contact channels",
     "labels": {
