@@ -15,22 +15,23 @@ export const Navbar5 = () => {
     {
       title: t("menuList.soluciones"),
       href: "#services",
+      className: "lg:hidden",
     },
     {
       title: t("menuList.enfoque"),
-      href: "/nosotros",
+      href: "#enfoque",
     },
     {
       title: t("menuList.proceso"),
-      href: "/proceso",
+      href: "#proceso",
     },
     {
       title: t("menuList.casos"),
-      href: "/casos",
+      href: "#casos",
     },
     {
       title: t("menuList.conectar"),
-      href: "/contacto",
+      href: "#contacto",
     },
   ];
   return (
@@ -40,6 +41,7 @@ export const Navbar5 = () => {
           <LogoWithURl href="/" target="_self" />
 
           <section className="hidden h-12 w-fit items-center justify-self-center rounded-full bg-white/10 px-5 backdrop-blur-xs lg:flex">
+            <ServiceButton />
             {MenuList.map((item) => (
               <NavLink key={item.title} {...item} />
             ))}
@@ -53,6 +55,67 @@ export const Navbar5 = () => {
       </header>
 
       <NavMobile {...{ MenuList }} />
+    </>
+  );
+};
+
+const ServiceButton = ({ className }: { className?: string }) => {
+  const t = useTranslations("nav");
+  const solutions = [
+    {
+      title: t("soluciones.1"),
+      href: "#apps",
+    },
+    {
+      title: t("soluciones.2"),
+      href: "#web",
+    },
+    {
+      title: t("soluciones.3"),
+      href: "#assistants",
+    },
+    {
+      title: t("soluciones.4"),
+      href: "#automation",
+    },
+  ];
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <button
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+        className={`relative hover:outline-2 outline-0 text-white/70 hover:text-white hover:font-semibold font-light outline-primary-2-500 px-3 py-1 rounded-full transition-all duration-100 ease-in-out ${className}`}
+      >
+        <p>{t("soluciones.title")}</p>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="w-60 outline bg-white/10 backdrop-blur-lg flex flex-col items-start gap-1.5 h-fit absolute top-[150%] inset-x-0 m-auto rounded-sm overflow-hidden font-light outline-primary-2-500 p-2"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <p className="text-primary-2-500 text-sm">
+                {t("soluciones.title")}
+              </p>
+              <ul className="pl-1.5 text-sm gap-3.5 flex flex-col">
+                {solutions.map((item) => (
+                  <Link
+                    href={item.href}
+                    className="w-full text-start"
+                    key={item.title}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </button>
     </>
   );
 };
@@ -188,7 +251,7 @@ const ContactButton = () => {
   const t = useTranslations("nav");
   return (
     <Link href={"/"} className={`group `}>
-      <div className="relative bg-white/5 backdrop-blur-sm flex flex-row border hover:border-0 overflow-hidden rounded-full w-fit min-w-40 px-2.5 py-1 h-full lg:text-sm items-center text-center justify-evenly cursor-pointer uppercase gap-2 transition-all duration-100 ease-out group-hover:flex-row-reverse">
+      <div className="relative bg-white/5 backdrop-blur-sm flex flex-row border hover:border-0 border-white text-white overflow-hidden rounded-full w-fit min-w-40 px-2.5 py-1 h-full lg:text-sm items-center text-center justify-evenly cursor-pointer uppercase gap-2 transition-all duration-100 ease-out group-hover:flex-row-reverse">
         <div
           className={`w-0 group-hover:w-full bg-[#075e54] transition-all duration-300 ease-out absolute inset-0 z-0`}
         />

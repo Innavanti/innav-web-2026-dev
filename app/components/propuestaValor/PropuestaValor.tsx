@@ -28,7 +28,10 @@ export const PropuestaValor = () => {
     },
   ];
   return (
-    <article className="w-screen h-screen overflow-hidden text-white relative flex justify-center items-center pt-20 lg:py-0 px-[5vw]">
+    <article
+      id="enfoque"
+      className="w-screen h-screen overflow-hidden text-white relative flex justify-center items-center pt-20 lg:py-0 px-[5vw]"
+    >
       <div className="absolute w-2.5 aspect-square pointer-events-none inset-x-0 m-auto bottom-[25%]">
         <Vortex
           rangeY={100}

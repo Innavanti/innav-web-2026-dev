@@ -140,6 +140,7 @@ export const ProcesoComp = () => {
 
   return (
     <main
+      id="proceso"
       ref={sectionRef}
       className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24 text-white"
     >

@@ -13,6 +13,13 @@
       "proceso": "Proceso",
       "casos": "Casos",
       "conectar": "Conectar"
+    },
+    "soluciones": {
+      "title": "Soluciones",
+      "1": "Desarrollo de Apps",
+      "2": "Desarrollo web",
+      "3": "Desarrollo de asistentes virtuales",
+      "4": "Automatización Tecnológica"
     }
   },
   "HomePage": {

@@ -33,7 +33,10 @@ const SocialMedia = [
 export const Form3 = () => {
   const t = useTranslations("Form");
   return (
-    <article className="w-screen h-fit min-h-screen lg:h-screen flex relative flex-row justify-center items-center py-[10%] px-[5vw] lg:px-[10vw] text-white">
+    <article
+      id="contacto"
+      className="w-screen h-fit min-h-screen lg:h-screen flex relative flex-row justify-center items-center py-[10%] px-[5vw] lg:px-[10vw] text-white"
+    >
       <div className="w-full h-full lg:max-h-[50vh] flex flex-col lg:flex-row gap-16 py-7 items-stretch ">
         <section className="w-full flex flex-col ">
           <div className="w-full h-full flex flex-col gap-5 lg:gap-10 justify-between">
