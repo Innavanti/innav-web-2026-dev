@@ -8,16 +8,10 @@ export const Casos = () => {
 
   const CasosList = [
     {
-      title: t("items.1.title"),
-      desc: t("items.1.desc"),
-      type: t("items.1.type"),
-      image: "/assets/casos/1.png",
-    },
-    {
-      title: t("items.2.title"),
-      desc: t("items.2.desc"),
-      type: t("items.2.type"),
-      image: "/assets/casos/2.png",
+      title: t("items.4.title"),
+      desc: t("items.4.desc"),
+      type: t("items.4.type"),
+      image: "/assets/casos/4.png",
     },
     {
       title: t("items.3.title"),
@@ -26,10 +20,16 @@ export const Casos = () => {
       image: "/assets/casos/3.png",
     },
     {
-      title: t("items.4.title"),
-      desc: t("items.4.desc"),
-      type: t("items.4.type"),
-      image: "/assets/casos/4.png",
+      title: t("items.1.title"),
+      desc: t("items.1.desc"),
+      type: t("items.1.type"),
+      image: "/assets/casos/1.webp",
+    },
+    {
+      title: t("items.2.title"),
+      desc: t("items.2.desc"),
+      type: t("items.2.type"),
+      image: "/assets/casos/2.png",
     },
   ];
   return (
@@ -44,7 +44,7 @@ export const Casos = () => {
           direction="left"
           // baseHue={200}
           className="flex items-center justify-center flex-col w-full h-full"
-        ></Vortex>
+        />
       </div>
       <div className="w-full flex h-full lg:max-h-[70vh] relative flex-col lg:flex-row justify-around px-[5vw] lg:px-[10vw] gap-6 lg:gap-10 pt-20 lg:pt-24 z-30">
         <section className="w-full h-fit lg:w-1/2 lg:h-full lg:px-2 flex flex-col justify-between">
@@ -88,9 +88,9 @@ export const Caso = ({ title, desc, type, image }: CasoProps) => {
     w-1/3 h-full absolute right-0 group-hover:z-50
     [--maskLeft:transparent]
     group-hover:[--maskLeft:black]
-    [mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_100%)]
-    [webkit-mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_100%)]
-    group-hover:scale-[160%] transition-all duration-300 ease-in-out 
+    [mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_40%)]
+    [webkit-mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_40%)]
+    group-hover:scale-[200%] transition-all duration-300 ease-in-out 
 
   "
         >
@@ -104,7 +104,7 @@ export const Caso = ({ title, desc, type, image }: CasoProps) => {
         </div>
       )}
       <div className="flex flex-row items-center gap-3">
-        <h1 className="text-2xl font-light uppercase">{title}</h1>
+        <h1 className="text-2xl font-semibold uppercase">{title}</h1>
         <FiArrowRight className="text-primary-1-500 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out " />
       </div>
       <div className="flex flex-row gap-2 items-center relative">
