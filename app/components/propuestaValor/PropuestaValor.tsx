@@ -41,7 +41,7 @@ export const PropuestaValor = () => {
           className="flex items-center justify-center flex-col w-full h-full "
         />
       </div>
-      <div className="w-full h-full  lg:h-auto lg:aspect-video flex flex-col gap-7 lg:gap-4 lg:grid grid-cols-2 grid-rows-[minmax(0,300px)_1fr]">
+      <div className="w-full h-full lg:h-auto lg:aspect-video flex flex-col gap-7 lg:gap-4 lg:grid grid-cols-2 grid-rows-[minmax(0,230px)_1fr] lg:py-8">
         <section className="w-full h-fit lg:h-full  flex flex-col gat-28 justify-center relative ">
           <h1 className="text-3xl lg:text-5xl font-semibold w-full h-fit">
             {t("title")}
