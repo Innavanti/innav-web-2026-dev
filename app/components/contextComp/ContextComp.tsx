@@ -61,13 +61,13 @@ export const ContextComp = ({
             <p>{t("subtext")}</p>
           </section>
         </div>
-        <div className="w-full h-full grid grid-cols-2 gap-4 p-1 place-items-center">
+        <div className="w-full h-full grid grid-cols-2 gap-4 p-1 place-items-center lg:hidden">
           {CardList.map((card, index) => (
             <ContextCard key={index} {...card} />
           ))}
         </div>
 
-        <div className="hidden w-full h-full relative lg:absolute overflow-x-hidden z-10">
+        <div className="hidden lg:flex w-full h-full lg:absolute overflow-x-hidden z-10">
           <motion.div
             ref={trackRef}
             // className="w-screen h-full lg:h-fit flex flex-row gap-20 justify-center lg:absolute bottom-[10%] left-0 m-auto items-center"
