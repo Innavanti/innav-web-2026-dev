@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { HiOutlineCursorClick } from "react-icons/hi";
 import { TbUnlink } from "react-icons/tb";
@@ -45,11 +45,24 @@ export const ContextComp = ({
 
   const x = useTransform(scrollYProgress, [0, 0.95], ["200vw", "-200vw"]);
 
+  const [isLg, setIsLg] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1024px)");
+
+    const handleChange = () => setIsLg(media.matches);
+
+    handleChange();
+    media.addEventListener("change", handleChange);
+
+    return () => media.removeEventListener("change", handleChange);
+  }, []);
+
   return (
     <main
       ref={parentRef}
-      className="w-screen relative"
-      style={{ height: `${screenHeight}vh` }}
+      className="w-screen h-screen relative "
+      style={isLg ? { height: `${screenHeight}vh` } : undefined}
     >
       <article className="w-screen  h-screen sticky top-0 flex flex-col lg:flex-row pt-20 pb-4 px-[5vw] lg:pt-20 lg:px-[10vw] gap-3 text-start items-center justify-center text-white ">
         <div className="w-full h-fit flex flex-col lg:flex-row items-stretch justify-center gap-3 lg:gap-0 z-0">
