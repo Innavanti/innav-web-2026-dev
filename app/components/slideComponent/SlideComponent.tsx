@@ -7,7 +7,6 @@ import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import ImageSequence from "./ImageSequence";
 
 type Solution = {
   type?: string;
@@ -70,14 +69,14 @@ export const SlideComponent = ({
     <main
       ref={ref}
       id={id}
-      className="w-screen h-screen flex justify-center items-center relative overflow-hidden px-[10vw]"
+      className="w-screen h-screen flex justify-center items-center relative overflow-hidden px-[10vw] text-white"
     >
       <motion.article
-        className="w-full h-fit py-20 flex flex-col lg:flex-row lg:justify-around lg:gap-0 lg:items-center relative "
+        className="w-full h-fit py-20 flex flex-col lg:justify-around lg:gap-0 relative "
         style={{ scale, y }}
       >
         {/* Title */}
-        <div className="w-full lg:m-0 h-fit lg:w-fit lg:h-fit relative flex lg:absolute left-[0%] lg:top-[20%]">
+        <div className="w-full lg:m-0 h-fit lg:w-fit lg:h-fit relative flex  left-[0%] lg:top-[20%]">
           <motion.h1
             className="text-4xl lg:text-7xl uppercase font-semibold"
             style={{ scale: textScale }}
@@ -88,15 +87,14 @@ export const SlideComponent = ({
 
         {/* Image */}
         {image && (
-          <div className="w-full  h-auto relative mb-10 lg:max-w-[75vw] xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex lg:absolute inset-0 m-auto pointer-events-none">
-            {/* <Image
+          <div className="w-full  h-auto relative mb-10 lg:max-w-[75vw] xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex inset-0 m-auto pointer-events-none">
+            <Image
               src={image}
               alt="Background element"
               fill
               className="object-contain object-bottom pointer-events-none"
               priority
-            /> */}
-            <ImageSequence basePath={image} />
+            />
           </div>
         )}
 

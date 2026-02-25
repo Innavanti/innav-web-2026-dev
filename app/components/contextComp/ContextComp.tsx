@@ -51,9 +51,9 @@ export const ContextComp = ({
       className="w-screen relative"
       style={{ height: `${screenHeight}vh` }}
     >
-      <article className="w-screen  h-screen sticky top-0 flex flex-col lg:flex-row pt-20 pb-4 px-[5vw] lg:pt-20 lg:px-[10vw] text-start items-center justify-center text-white ">
-        <div className="w-full h-fit flex flex-col lg:flex-row items-stretch justify-center gap-3 lg:gap-0">
-          <section className="w-full flex items-center text-5xl lg:text-7xl pr-5 lg:leading-20">
+      <article className="w-screen  h-screen sticky top-0 flex flex-col lg:flex-row pt-20 pb-4 px-[5vw] lg:pt-20 lg:px-[10vw] gap-3 text-start items-center justify-center text-white ">
+        <div className="w-full h-fit flex flex-col lg:flex-row items-stretch justify-center gap-3 lg:gap-0 z-0">
+          <section className="w-full flex items-center text-[36px] lg:text-7xl pr-5 lg:leading-20 leading-10">
             <h1>{t("text")}</h1>
           </section>
 
@@ -61,9 +61,16 @@ export const ContextComp = ({
             <p>{t("subtext")}</p>
           </section>
         </div>
-        <div className="w-full h-full relative lg:absolute bg-blue-400/0 lg:hidde overflow-x-hidden">
+        <div className="w-full h-full grid grid-cols-2 gap-4 p-1 place-items-center">
+          {CardList.map((card, index) => (
+            <ContextCard key={index} {...card} />
+          ))}
+        </div>
+
+        <div className="hidden w-full h-full relative lg:absolute overflow-x-hidden z-10">
           <motion.div
             ref={trackRef}
+            // className="w-screen h-full lg:h-fit flex flex-row gap-20 justify-center lg:absolute bottom-[10%] left-0 m-auto items-center"
             className="w-screen h-full lg:h-fit flex flex-row gap-20 justify-center lg:absolute bottom-[10%] left-0 m-auto items-center"
             style={{ x }}
           >
@@ -73,18 +80,6 @@ export const ContextComp = ({
           </motion.div>
         </div>
       </article>
-
-      {/* <div className="w-screen hidden h-full relative lg:sticky top-0 inset-x-0 m-auto overflow-hidden lg:h-screen lg:flex items-start ">
-        <motion.div
-          ref={trackRef}
-          className="w-screen h-full lg:h-fit flex flex-row gap-20 justify-center lg:absolute bottom-[10%] left-0 m-auto items-center"
-          style={{ x }}
-        >
-          {CardList.map((card, index) => (
-            <ContextCard key={index} {...card} />
-          ))}
-        </motion.div>
-      </div> */}
     </main>
   );
 };
@@ -101,25 +96,24 @@ export const ContextCard = ({
       className="
         relative
         outline outline-primary-1-400/40
-        rounded-2xl p-5 gap-6
+        rounded-2xl p-3 *:lg:p-5 gap-6
         bg-black/20
-        backdrop-blur-xl
-        w-auto h-full
-        max-h-67.5 aspect-square
+        backdrop-blur-sm
+        md:w-auto h-full
+        max-h-67.5 md:aspect-square
         items-center justify-center
         flex flex-col
-
         border border-white/10
         shadow-[0_8px_32px_rgba(0,0,0,0.35)]
       "
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-b from-white/10 to-transparent" />
 
-      <div className="relative aspect-square w-14 outline bg-[#3EB0C8]/20 outline-primary-1-500 text-primary-1-500 rounded-lg flex items-center justify-center text-3xl">
+      <div className="relative aspect-square w-14 outline bg-[#3EB0C8]/20 outline-primary-1-500 text-primary-1-500 rounded-lg flex items-center justify-center text-xl lg:text-3xl">
         {icon}
       </div>
 
-      <p className="relative text-white text-xl">{title}</p>
+      <p className="relative text-white text-sm lg:text-xl">{title}</p>
     </div>
   );
 };

@@ -28,7 +28,10 @@ export const PropuestaValor = () => {
     },
   ];
   return (
-    <article className="w-screen h-screen overflow-hidden text-white relative flex justify-center items-center pt-20 lg:py-0 px-[5vw]">
+    <article
+      id="enfoque"
+      className="w-screen h-screen overflow-hidden text-white relative flex justify-center items-center pt-20 lg:py-0 px-[5vw]"
+    >
       <div className="absolute w-2.5 aspect-square pointer-events-none inset-x-0 m-auto bottom-[25%]">
         <Vortex
           rangeY={100}
@@ -63,7 +66,7 @@ export const PropuestaValor = () => {
           <div className="w-full h-fit">
             <div className="w-full flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory lg:overflow-visible lg:snap-none lg:justify-center">
               {cards.map((card, index) => (
-                <Card key={index} {...card} />
+                <ValueCard key={index} {...card} />
               ))}
             </div>
           </div>
@@ -86,7 +89,7 @@ type GlassCardProps = {
   className?: string;
 };
 
-export const Card = ({
+export const ValueCard = ({
   title = "GLASS EFFECT",
   icon,
   desc,
@@ -96,7 +99,7 @@ export const Card = ({
     <div
       className={`relative inline-block text-white shrink-0 snap-start lg:shrink ${className}`}
     >
-      <div className="flex flex-col justify-around aspect-45/61 gap-3 w-full min-w-56 max-w-67.5 h-full px-5 py-6 rounded-[0.7rem] bg-white/[0.074] border border-primary-1-50/10 backdrop-blur-[20px] transition-all duration-300 ease-out hover:shadow-[0_0_20px_1px_#ffbb763f] hover:border-primary-1-50/[0.454]">
+      <div className="flex flex-col justify-around aspect-45/61 gap-3 w-full min-w-56 max-w-67.5 h-full px-5 py-6 rounded-[0.7rem] bg-white/[0.074] border border-primary-1-50/10 backdrop-blur-sm transition-all duration-300 ease-out hover:shadow-[0_0_20px_1px_#ffbb763f] hover:border-primary-1-50/[0.454]">
         {icon ? (
           <div className="text-4xl text-primary-1-500 font-font">{icon}</div>
         ) : null}

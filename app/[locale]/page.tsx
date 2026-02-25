@@ -25,6 +25,7 @@ export default function Home() {
     {
       id: "apps",
       title: t("ServicesSection.Services.1.title"),
+      image: "/assets/slides/desarrollo-apps.png",
       solution: {
         type: t("ServicesSection.Services.1.solution.type"),
         title: t("ServicesSection.Services.1.solution.title"),
@@ -35,7 +36,7 @@ export default function Home() {
     {
       id: "web",
       title: t("ServicesSection.Services.2.title"),
-      image: "/assets/slides/pc/pc_animacion_",
+      image: "/assets/slides/desarollo-web.png",
       solution: {
         type: t("ServicesSection.Services.2.solution.type"),
         title: t("ServicesSection.Services.2.solution.title"),
@@ -47,6 +48,7 @@ export default function Home() {
     {
       id: "assistants",
       title: t("ServicesSection.Services.3.title"),
+      image: "/assets/slides/new-asistentes.png",
       solution: {
         type: t("ServicesSection.Services.3.solution.type"),
         title: t("ServicesSection.Services.3.solution.title"),
@@ -58,6 +60,7 @@ export default function Home() {
     {
       id: "automation",
       title: t("ServicesSection.Services.4.title"),
+      image: "/assets/slides/desarrollo-chatbots.png",
       solution: {
         type: t("ServicesSection.Services.4.solution.type"),
         title: t("ServicesSection.Services.4.solution.title"),

@@ -28,21 +28,77 @@ export const ProcesoComp = () => {
 
   const reducedMotion = useReducedMotion();
 
+  // --- mobile centre-focus detection ---
+  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const setItemRef = (idx: number) => (el: HTMLLIElement | null) => {
+    itemRefs.current[idx] = el;
+  };
+
+  const [isMobile, setIsMobile] = useState(false);
+
   // Auto-advance spotlight only while in view and not hovered
   useEffect(() => {
     if (!inView) return;
-
-    // If reduced motion, don’t auto-cycle
     if (reducedMotion) return;
-
     if (paused) return;
+
+    // On mobile we don't cycle — the centre card will drive activeIndex
+    if (isMobile) return;
 
     const id = window.setInterval(() => {
       setActiveIndex((i) => (i + 1) % COUNT);
     }, INTERVAL_MS);
 
     return () => window.clearInterval(id);
-  }, [inView, paused, reducedMotion]);
+  }, [inView, paused, reducedMotion, isMobile]);
+
+  useEffect(() => {
+    if (!inView) return;
+    if (!isMobile) return;
+    if (paused) return; // if user is hovering with a pointer, respect that
+
+    let raf = 0;
+
+    const pickCentre = () => {
+      const centreY = window.innerHeight / 2;
+
+      let bestIdx = 0;
+      let bestDist = Number.POSITIVE_INFINITY;
+
+      for (let i = 0; i < COUNT; i++) {
+        const el = itemRefs.current[i];
+        if (!el) continue;
+
+        const r = el.getBoundingClientRect();
+        const elCentreY = r.top + r.height / 2;
+        const dist = Math.abs(elCentreY - centreY);
+
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIdx = i;
+        }
+      }
+
+      setActiveIndex(bestIdx);
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(pickCentre);
+    };
+
+    // initial pick
+    pickCentre();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [inView, isMobile, paused]);
 
   // Which card is "spotlighted" right now:
   const spotlightIndex = hoverIndex ?? activeIndex;
@@ -66,13 +122,30 @@ export const ProcesoComp = () => {
     [],
   );
 
+  useEffect(() => {
+    // Tailwind md breakpoint = 768px
+    const mq = window.matchMedia("(max-width: 767px)");
+    const sync = () => setIsMobile(mq.matches);
+    sync();
+
+    // safari fallback: addListener/removeListener
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener("change", sync);
+      else mq.removeListener(sync);
+    };
+  }, []);
+
   return (
     <main
+      id="proceso"
       ref={sectionRef}
-      className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24"
+      className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24 text-white"
     >
       <article className="px-[10vw] flex flex-col items-center justify-center gap-5 lg:gap-10 h-full lg:h-auto">
-        <div className="w-full h-fit flex flex-col lg:flex-row items-start justify-between gap-4">
+        <div className="w-full h-fit flex flex-col lg:flex-row items-start justify-between gap-4 z-0">
           <h1 className="w-full lg:w-1/2 font-bold text-3xl lg:text-5xl">
             {t("title")}
           </h1>
@@ -177,6 +250,7 @@ interface GridItemProps {
   number?: string;
   onHoverChange: (hovering: boolean) => void;
   variants: any;
+  liRef?: React.Ref<HTMLLIElement>;
 }
 
 const GridItem = ({
@@ -188,9 +262,11 @@ const GridItem = ({
   number,
   onHoverChange,
   variants,
+  liRef,
 }: GridItemProps) => {
   return (
     <motion.li
+      ref={liRef}
       className={`min-h-56 list-none ${area}`}
       variants={variants}
       onHoverStart={() => onHoverChange(true)}
