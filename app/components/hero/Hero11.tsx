@@ -71,16 +71,48 @@ export const HeroAnimated = () => {
       ref={heroRef}
       className="relative flex flex-col justify-center items-center bg-transparen w-screen h-screen"
     >
+      <style>
+        {`
+            @keyframes SparklesGrowAnimation
+            {
+                from  { width: 0%; }
+                25%   { width: 0%; }
+                to    { width: 100%; }
+            }
+            @keyframes TitleGrowAnimation 
+            {
+
+                from  { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); }
+                25%   { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); }
+                to    { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+            }
+        `}
+      </style>
       <article className="flex flex-col justify-center items-center gap-0 px-[5%] lg:px-0 w-full h-full">
         <div className="flex flex-col justify-end py-6 w-full h-full font-bold text-[32px] lg:text-[36px] text-center uppercase leading-tight">
           <h1 className="">
-            <span className="bg-clip-text bg-linear-to-b from-primary-1-50 to-primary-3-900/20 text-transparent">
+            {/*  */}
+            <span
+              className="bg-clip-text bg-linear-to-b from-primary-1-50 to-primary-3-900/20 text-transparent"
+              style={{
+                animation: "TitleGrowAnimation 1 linear",
+                animationDuration: "1.5s",
+              }}
+            >
               {t("title.3")}
             </span>
           </h1>
         </div>
         <div className="relative rounded-b-full w-full max-w-[100vw] h-full max-h-[45vh] overflow-">
-          <SparklesSeparator />
+          <div
+            className="m-auto"
+            style={{
+              animation: "SparklesGrowAnimation 1 linear",
+              animationDuration: "1.5s",
+            }}
+          >
+            <SparklesSeparator />
+          </div>
           <SparklesCore particleDensity={25} overscanY={220} />
         </div>
       </article>
@@ -310,7 +342,7 @@ export const NewHeroWithLogo = () => {
             className="drop-shadow-2xl object-contain"
             priority
             style={{
-              clipPath: "polygon(0% 66%, 100% 66%, 100% 100%, 0% 100%);",
+              clipPath: "polygon(0% 66%, 100% 66%, 100% 100%, 0% 100%)",
             }}
           />
         </div>

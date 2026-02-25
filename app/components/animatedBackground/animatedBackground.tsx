@@ -40,12 +40,10 @@ export const AnimatedBackground_Phone = () => {
   const className =
     "absolute drop-shadow-2xl w-full h-full object-contain animate-hover ";
   const relative_height = 50;
-  const reference =
-    "/assets/animated_backgrounds/phone_messages/phone_reference.jpg";
-
   const imagePath = "/assets/animated_backgrounds/phone_messages";
+
   return (
-    <div className="relative border-2 border-green-500 w-screen h-screen">
+    <div className="relative w-screen h-screen">
       <StylesCSS />
       <Glow className={className} />
 
@@ -57,13 +55,13 @@ export const AnimatedBackground_Phone = () => {
         className={className}
       />
       <EnergyContainer>
-        <EnergyNode path="m0250,900 v-400" trail duration="1.7s" />
-        <EnergyNode path="m0700,850 v-400" trail duration="1.4s" />
-        <EnergyNode path="m0800,950 v-400" trail duration="1.6s" />
-        <EnergyNode path="m0600,920 v-400" trail duration="1.2s" />
-        <EnergyNode path="m0900,900 v-400" trail duration="1.8s" />
-        <EnergyNode path="m1000,900 v-400" trail duration="2s" />
-        <EnergyNode path="m1300,950 v-400" trail duration="2.2s" />
+        <EnergyNode path="m0250,900 m0,-400 v400" trail duration="1.7s" />
+        <EnergyNode path="m0700,850 m0,-400 v400" trail duration="1.4s" />
+        <EnergyNode path="m0800,950 m0,-400 v400" trail duration="1.6s" />
+        <EnergyNode path="m0600,920 m0,-400 v400" trail duration="1.2s" />
+        <EnergyNode path="m0900,900 m0,-400 v400" trail duration="1.8s" />
+        <EnergyNode path="m1000,900 m0,-400 v400" trail duration="2s" />
+        <EnergyNode path="m1300,950 m0,-400 v400" trail duration="2.2s" />
       </EnergyContainer>
       {/* Message 1 */}
       <div
@@ -83,7 +81,7 @@ export const AnimatedBackground_Phone = () => {
         style={{ transform: `translate(0px, ${relative_height - 30}px)` }}
       >
         <Image
-          src={imagePath + "/message2.webp"}
+          src={imagePath + "/message2.png"}
           alt="Loading..."
           fill
           className={className + "anim-duration-3 opacity-80"}
@@ -96,10 +94,10 @@ export const AnimatedBackground_Phone = () => {
         style={{ transform: `translate(0px, ${relative_height * 1.8}px)` }}
       >
         <Image
-          src={imagePath + "/message3.webp"}
+          src={imagePath + "/message3.png"}
           alt="Loading..."
           fill
-          className={className + "anim-duration-4  opacity-100 "}
+          className={className + "anim-duration-4  opacity-80 "}
         />
       </div>
       {/* Message 4 (Top square) */}
@@ -122,8 +120,22 @@ export const AnimatedBackground_PhoneNet = () => {
   const className = "absolute w-full h-full object-contain  ";
   const relative_height = 100;
   const imagePath = "/assets/animated_backgrounds/phone_net";
+
+  const EnergyNodePaths = [
+    "m512,450 l  40,-180 ",
+    "m512,450 l  10, 200",
+    "m512,450 l -20, 150",
+    "m512,450 l 310,  10",
+    "m512,450 l-230, -70",
+    "m512,450 l 200,-100",
+    "m512,450 l-230,  70",
+    "m512,450 l-150,-150",
+    "m512,450 l 190,-150",
+    "m512,450 l-150, 150",
+    "m512,450 l 150, 150",
+  ];
   return (
-    <div className="relative border-2 border-green-500 w-screen h-screen">
+    <div className="relative w-screen h-screen">
       <StylesCSS />
       {/* Phone  */}
       <Image
@@ -134,18 +146,18 @@ export const AnimatedBackground_PhoneNet = () => {
         className={className}
       />
       <EnergyContainer viewBox="0 0 1024 1024">
-        <EnergyNode path="m512,450 l  40,-180" trail duration="1.1s" />
-        <EnergyNode path="m512,450 l  10, 200" trail duration="1.2s" />
-        <EnergyNode path="m512,450 l -20, 150" trail duration="1.3s" />
-        <EnergyNode path="m512,450 l 200,  10" trail duration="1.4s" />
-        <EnergyNode path="m512,450 l-230, -70" trail duration="1.5s" />
-        <EnergyNode path="m512,450 l 150, 150" trail duration="1.6s" />
-        <EnergyNode path="m512,450 l 200,-100" trail duration="1.7s" />
-        <EnergyNode path="m512,450 l-230,  70" trail duration="1.8s" />
-        <EnergyNode path="m512,450 l-150,-150" trail duration="1.9s" />
-        <EnergyNode path="m512,450 l 190,-150" trail duration="2s" />
-        <EnergyNode path="m512,450 l-150, 150" trail duration="2.1s" />
+        {EnergyNodePaths.map((path, index) => (
+          <EnergyNode
+            key={index}
+            path={path}
+            trail
+            blue
+            duration={`${1 + index * 0.1}s`}
+            delay={`${index * 0.1}s`}
+          />
+        ))}
       </EnergyContainer>
+
       {/* Sphere  */}
       <div
         className="absolute w-full h-full"
@@ -280,98 +292,99 @@ export const AnimatedBackground_PhoneNet = () => {
 };
 
 export const AnimatedBackground_Desktop = () => {
-  const className = "absolute w-full h-full object-contain  ";
-  const relative_height = 0;
-  const imagePath = "/assets/animated_backgrounds/desktop";
+  const className = "absolute w-full h-full object-contain ";
+  const folderPath = "/assets/animated_backgrounds/desktop";
+  const ImagePaths = [
+    "/charts_v1.png",
+    "/code1_v1.png",
+    "/code2_v1.png",
+    "/keyboard_v1.png",
+    "/mousepad_v1.png",
+  ];
+
+  const EnergyNodePaths = [
+    "m0590,570 v300",
+    "m775,800 v300",
+    "m200,1100 v300",
+    "m1050,1250 v300",
+    "m1500,1350 v300",
+    "m1750,800 v300",
+    "m2100,1000 v300",
+  ];
+
+  const DataLinkPaths = [
+    "m0550,600 l150,80",
+    "m0750,780 l150,-80",
+    "m01550,700 l160,-90 ",
+    "m0660,450 l80,-45 a 30,30 0 0,1 40,0 l80,45",
+    "m0750,1010 l160,-90 a 25,25 0 0,0 0,-40 l-160,-90",
+    "m01600,1350 l160,-90 a 25,25 0 0,0 0,-40 l-160,-90",
+  ];
+
   return (
-    <div className="relative border-2 border-green-500 w-screen h-screen">
+    <div className="relative w-screen h-screen">
       <StylesCSS />
       <Glow className={className} />
+      <EnergyContainer viewBox="0 0 2400 1536">
+        {EnergyNodePaths.map((path, index) => (
+          <EnergyNode
+            key={index}
+            path={path}
+            trail
+            duration={`${2 + index * 0.1}s`}
+            blue
+            delay={`${index * 0.1}s`}
+          />
+        ))}
+        {DataLinkPaths.map((path, index) => (
+          <EnergyLine
+            key={`desktop-datalink-${index}`}
+            id={`desktop-datalink-${index}`}
+            path={path}
+            duration={`${1 + index * 0.1}s`}
+            delay={`${index * 0.1}s`}
+          />
+        ))}
+      </EnergyContainer>
 
-      {/* Charts  */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
-        <Image
-          src={imagePath + "/charts_v1.png"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: "1.5s" }}
-        />
-      </div>
-      {/* Code */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
-        <Image
-          src={imagePath + "/code1_v1.png"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: "0s" }}
-        />
-      </div>
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
-        <Image
-          src={imagePath + "/code2_v1.png"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: ".8s" }}
-        />
-      </div>
-      {/* Screen */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
-        <Image
-          src={imagePath + "/screen_v1.png"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: "0.4s" }}
-        />
-      </div>
+      <Image
+        src={folderPath + "/screen2_v1.png"}
+        alt={`desktop-${"/screen2_v1.png"}`}
+        fill
+        id="mask"
+        className={className}
+      />
+      <Image
+        src={folderPath + "/screen_v1.png"}
+        alt={`desktop-${"/screen_v1.png"}`}
+        fill
+        id="mask"
+        className={className + " animate-pulse "}
+        style={{ animationDuration: "2s" }}
+      />
+      <Image
+        src={folderPath + "/screen3_v1.png"}
+        alt={`desktop-${"/screen3_v1.png"}`}
+        fill
+        id="mask"
+        className={className}
+      />
 
-      {/* Keyboard  */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
+      {/* Animated Images  */}
+      {ImagePaths.map((path, index) => (
         <Image
-          src={imagePath + "/keyboard_v1.png"}
-          alt="Innavanti Logo"
+          key={index}
+          src={folderPath + path}
+          alt={`desktop-${index}`}
           fill
           id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: "1s" }}
+          className={className + " animate-hover "}
+          style={{
+            animationDuration: `${1 + index * 0.1}s`,
+            animationDelay: `${index * 0.1}s`,
+          }}
         />
-      </div>
-      {/* MousePad  */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
-        <Image
-          src={imagePath + "/mousepad_v1.png"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-70 "}
-          style={{ animationDuration: "2s", animationDelay: "0.5s" }}
-        />
-      </div>
+      ))}
     </div>
   );
 };
@@ -390,15 +403,26 @@ export const AnimatedBackground_Datacenter = () => {
       duration: "2.4s",
       path: "M280,620 m25,-20 l33,19 a 10,10 0 0,0 10,0 l164,-99 a 15,12 0 0,0 0,-19 l-133,-75 a 10,10 0 0,1 0,-14 l45.5,-26",
     },
-    { duration: "1.2s", path: "M259,633 l110,63 " },
-    { duration: "1.3s", path: "M282,616 m110,63 l-110,-63 " },
+    // Storage to CPU
+    { duration: "1.2s", path: "M209,663 l120,73 " },
+    { duration: "1.3s", path: "M352,719 l-120,-73 " },
+    // CPU to Devices
     { duration: "1.1s", path: "M497,582 l110,-66" },
     { duration: "1.4s", path: "M520,595 m110,-66 l-110,66 " },
+    // GPU to Devices
     { duration: "1.0s", path: "M630,378 l110,63 " },
     { duration: "1.2s", path: "M610,390 m110,63 l-110,-63 " },
   ];
+
+  const ImagePaths = [
+    { duration: "2.6s", path: "/devices.png" },
+    { duration: "2.4s", path: "/gpu.png" },
+    { duration: "2.2s", path: "/auth.png" },
+    { duration: "2.3s", path: "/storage.png" },
+    { duration: "2.1s", path: "/cpu.png" },
+  ];
   return (
-    <div className="relative border-2 border-green-500 w-screen h-screen">
+    <div className="relative w-screen h-screen">
       <StylesCSS />
       <Glow className={className} />
       <EnergyContainer viewBox="0 0 1080 1080" className=" ">
@@ -409,141 +433,47 @@ export const AnimatedBackground_Datacenter = () => {
             duration={duration}
             delay={index * 0.1 + "s"}
             id={index.toString()}
+            line
           />
         ))}
       </EnergyContainer>
       {/* ---------- Image Files ---------- */}
-      <div className="">
-        {/* Devices layers  */}
-        <>
+      <>
+        <Image
+          src={imagePath + "/base.png"}
+          alt="Innavanti Logo"
+          fill
+          className={className}
+        />
+        <Image
+          src={imagePath + "/glass.png"}
+          alt="Innavanti Logo"
+          fill
+          className={className + "opacity-50"}
+        />
+
+        {/* Animated components  */}
+        {ImagePaths.map(({ path, duration }, index) => (
           <Image
-            src={imagePath + "/devices-case.png"}
+            key={"datacenter_component_" + index}
+            src={imagePath + path}
             alt="Innavanti Logo"
             fill
-            id="mask"
-            className={className + "  "}
+            className={className + "animate-hover"}
+            style={{
+              animationDuration: (2 + index * 0.1).toString() + "s",
+              animationDelay: (index * 0.1).toString() + "s",
+            }}
           />
-          <Image
-            src={imagePath + "/devices-internals.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + " animate-hover"}
-            style={{ animationDuration: "2.1s", animationDelay: "1s" }}
-          />
-          <Image
-            src={imagePath + "/devices-glass.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + "  opacity-80"}
-          />
-        </>
-        {/* GPU layers  */}
-        <>
-          <Image
-            src={imagePath + "/gpu-case.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + "  "}
-          />
-          <Image
-            src={imagePath + "/gpu-internals.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + " animate-hover"}
-            style={{ animationDuration: "2.2s", animationDelay: "1.1s" }}
-          />
-          <Image
-            src={imagePath + "/gpu-glass.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + ""}
-          />
-        </>
-        {/* Auth layers  */}
-        <>
-          <Image
-            src={imagePath + "/auth-case.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + "  "}
-          />
-          <Image
-            src={imagePath + "/auth-internals.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + " animate-hover"}
-            style={{ animationDuration: "2.3s", animationDelay: "0.9s" }}
-          />
-          <Image
-            src={imagePath + "/auth-glass.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + "  opacity-80"}
-          />
-        </>
-        {/* Storage layers  */}
-        <>
-          <Image
-            src={imagePath + "/storage-case.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + "  "}
-            style={{ animationDuration: "2s", animationDelay: "1.5s" }}
-          />
-          <Image
-            src={imagePath + "/storage-internals.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + " animate-hover"}
-            style={{ animationDuration: "2.1s", animationDelay: "1.5s" }}
-          />
-          <Image
-            src={imagePath + "/storage-glass.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + "  opacity-80"}
-            style={{ animationDuration: "2s", animationDelay: "1.5s" }}
-          />
-        </>
-        {/* CPU layers  */}
-        <>
-          <Image
-            src={imagePath + "/cpu-case.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + "  "}
-            style={{ animationDuration: "2s", animationDelay: "1.5s" }}
-          />
-          <Image
-            src={imagePath + "/cpu-internals.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + " animate-hover"}
-            style={{ animationDuration: "2.1s", animationDelay: "1.5s" }}
-          />
-          <Image
-            src={imagePath + "/cpu-glass.png"}
-            alt="Innavanti Logo"
-            fill
-            id="mask"
-            className={className + "  opacity-80"}
-            style={{ animationDuration: "2s", animationDelay: "1.5s" }}
-          />
-        </>
-      </div>
+        ))}
+        <Image
+          src={imagePath + "/glass-detail.png"}
+          alt="Innavanti Logo"
+          fill
+          className={className}
+          style={{ animationDuration: "2.1s", animationDelay: "1.4s" }}
+        />
+      </>
     </div>
   );
 };
@@ -552,37 +482,41 @@ const EnergyNode = ({
   path = "M500, 600 l0,-500",
   duration = "2s",
   trail = false,
-  delay = "2s",
+  delay = "0s",
+  blue = false,
 }: {
   path?: string;
   duration?: string;
   trail?: boolean;
   delay?: string;
+  blue?: boolean;
 }) => {
   return (
     <>
       {trail && (
         <path
           fill="none"
-          stroke={`url(#linearGrad)`}
+          stroke={`url(#linearGrad${blue ? "Blue" : "White"})`}
           strokeWidth={5}
           d={"m0,0 l-200,1"}
           style={{
             offsetPath: `path('${path}')`,
             animation: "EnergyLine infinite linear",
             animationDuration: duration,
+            animationDelay: delay,
           }}
         />
       )}
       <circle
-        fill={`url(#circleGrad)`}
+        fill={`url(#circleGrad${blue ? "Blue" : "White"})`}
         stroke="none"
         strokeWidth={2}
         r={30}
         style={{
           offsetPath: `path('${path}')`,
-          animation: " EnergyLine infinite linear",
+          animation: "EnergyLine infinite linear",
           animationDuration: duration,
+          animationDelay: delay,
         }}
       />
     </>
@@ -593,21 +527,20 @@ const EnergyLine = ({
   path = "M500, 600 l0,-500",
   duration = "2s",
   id,
-  debug = false,
+
   delay = "0s",
+  line = false,
 }: {
   path?: string;
   duration?: string;
   id: string;
-  debug?: boolean;
+
   delay?: string;
+  line?: boolean;
 }) => {
   return (
     <>
       <defs>
-        <filter id="blur">
-          <feGaussianBlur stdDeviation="1" />
-        </filter>
         <mask id={`energy-mask-${id}`}>
           <path
             d={path}
@@ -619,20 +552,9 @@ const EnergyLine = ({
           />
         </mask>
       </defs>
-      {debug && (
-        <path
-          d={path}
-          fill="none"
-          stroke="white"
-          strokeWidth={5}
-          strokeLinejoin="round"
-          strokeLinecap="round"
-          opacity={0.5}
-        />
-      )}
 
-      <g filter="url(#blur)">
-        <g mask={`url(#energy-mask-${id})`}>
+      {line && (
+        <>
           <path
             d={path}
             fill="none"
@@ -642,30 +564,31 @@ const EnergyLine = ({
             strokeLinecap="round"
             opacity={0.2}
           />
-
-          <circle
-            fill={`url(#circleGrad1)`}
-            stroke="none"
-            strokeWidth={2}
-            r={30}
-            style={{
-              offsetPath: `path('${path}')`,
-              animation: "EnergyLine infinite linear",
-              animationDuration: duration,
-              animationDelay: delay,
-            }}
+          <path
+            d={path}
+            fill="none"
+            stroke="#2fbfcf"
+            strokeWidth={1}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            opacity={0.5}
           />
-        </g>
+        </>
+      )}
+      <g mask={`url(#energy-mask-${id})`}>
+        <circle
+          fill={`url(#dataLinkGrad)`}
+          stroke="none"
+          strokeWidth={2}
+          r={30}
+          style={{
+            offsetPath: `path('${path}')`,
+            animation: "EnergyLine infinite linear",
+            animationDuration: duration,
+            animationDelay: delay,
+          }}
+        />
       </g>
-      <path
-        d={path}
-        fill="none"
-        stroke="#2fbfcf"
-        strokeWidth={1}
-        strokeLinejoin="round"
-        strokeLinecap="round"
-        opacity={0.5}
-      />
     </>
   );
 };
@@ -686,22 +609,7 @@ const EnergyContainer = ({
     >
       <style>
         {`
-        @keyframes Spark
-        {
-            from
-            { 
-              opacity:0;
-            }
-            30%,50% 
-            {
-            opacity:1;
-            }
-            to 
-            { 
-              opacity:0;
-            }
-        }
-         @keyframes EnergyLine 
+        @keyframes EnergyLine 
         {
             0%
             { 
@@ -726,18 +634,32 @@ const EnergyContainer = ({
         `}
       </style>
       <defs>
-        <radialGradient id={"circleGrad1"} cx="1" cy=".5" r={1}>
+        <radialGradient id={"dataLinkGrad"} cx="1" cy=".5" r={1}>
           <stop offset="0%" stopColor="#2bb4c8FF" />
           <stop offset="100%" stopColor="#2bb4c800" />
         </radialGradient>
 
-        <radialGradient id={"circleGrad2"}>
+        <radialGradient id={"circleGradWhite"}>
+          <stop offset="0%" stopColor="#caecf1FF" />
+          <stop offset="100%" stopColor="#caecf100" />
+        </radialGradient>
+        <radialGradient id={"circleGradBlue"}>
           <stop offset="0%" stopColor="#2bb4c8FF" />
           <stop offset="100%" stopColor="#2bb4c800" />
         </radialGradient>
-        <linearGradient id={"linearGrad"} x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient
+          id={"linearGradWhite"}
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
           <stop offset="0%" stopColor="transparent" />
-          <stop offset="100%" stopColor="#2bb4c899" />
+          <stop offset="100%" stopColor="#caecf1FF" />
+        </linearGradient>
+        <linearGradient id={"linearGradBlue"} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="transparent" />
+          <stop offset="100%" stopColor="#2bb4c8FF" />
         </linearGradient>
       </defs>
       {children}
