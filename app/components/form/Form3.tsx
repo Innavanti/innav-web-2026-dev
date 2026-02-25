@@ -57,7 +57,7 @@ export const Form3 = () => {
         </section>
         <MediaSection className="lg:hidden" />
       </div>
-      <p className="w-fit h-fit bottom-0 lg:bottom-[4%] inset-x-0 m-auto absolute">
+      <p className="w-fit h-fit bottom-2 lg:bottom-[4%] inset-x-0 m-auto absolute text-xs lg:text-base">
         <span>&#169; </span>
         {t("copyright")}
       </p>
