@@ -37,7 +37,7 @@ export const Form3 = () => {
       id="contacto"
       className="w-screen h-fit min-h-screen lg:h-screen flex relative flex-row justify-center items-center py-[10%] px-[5vw] lg:px-[10vw] text-white"
     >
-      <div className="w-full h-full lg:max-h-[50vh] flex flex-col lg:flex-row gap-16 py-7 items-stretch ">
+      <div className="w-full h-full lg:max-h-[50vh] flex flex-col lg:flex-row gap-16 py-7 lg:py-0 items-stretch">
         <section className="w-full flex flex-col ">
           <div className="w-full h-full flex flex-col gap-5 lg:gap-10 justify-between">
             <h1 className="text-3xl lg:text-5xl font-bold">{t("title")}</h1>
@@ -91,7 +91,7 @@ export const GradientForm = () => {
   return (
     <div
       ref={ref}
-      className={`rounded-[22px] p-0.5 transition-all duration-300 w-full lg:w-auto h-full lg:aspect-10/9
+      className={`rounded-[22px] p-0.5 transition-all duration-300 w-full h-full lg:aspect-square
         bg-[linear-gradient(163deg,#3eb0c8_0%,#0c7092_100%)]
         ${isInView ? "shadow-[0_0_30px_1px_#095068]" : ""}`}
     >
@@ -99,7 +99,7 @@ export const GradientForm = () => {
         className={`transition-all duration-200 w-full h-full 
           ${isInView ? "scale-[0.98] rounded-[20px]" : ""}`}
       >
-        <form className="w-full h-full relative flex flex-col gap-5 lg:gap-2 px-[5%] lg:px-[10%] py-[10%] justify-around rounded-[25px] bg-[#171717] ">
+        <form className="w-full h-full relative flex flex-col gap-5 lg:gap-2.5 px-[5%] lg:px-[10%] py-[10%] justify-around rounded-[25px] bg-[#171717] ">
           <section className="w-full h-fit flex flex-col lg:flex-row gap-3">
             <div className="w-full h-fit flex flex-col gap-1.5">
               <p className="font-thin">
@@ -130,7 +130,7 @@ export const GradientForm = () => {
               <p className="font-thin">{t("message")}</p>
               <Input
                 type="text"
-                className="min-h-20"
+                className="min-h-20 "
                 placeholder={t("messagePH")}
               />
             </div>
@@ -139,7 +139,7 @@ export const GradientForm = () => {
             <div className="flex w-full justify-center">
               <MovingBorderButton
                 className="uppercase font-semibold flex flex-row gap-1.5 w-full cursor-pointer"
-                containerClassName="w-full max-w-[70%] self-center justify-self-center h-12 lg:h-14"
+                containerClassName="w-full max-w-[70%] self-center justify-self-center h-12"
               >
                 <p>{t("send")}</p>
                 <div className="aspect-square w-4 relative">
