@@ -25,7 +25,8 @@ export default function Home() {
     {
       id: "apps",
       title: t("ServicesSection.Services.1.title"),
-      image: "/assets/slides/desarrollo-apps.png",
+      // image: "/assets/slides/desarrollo-apps.png",
+      animation: <AnimatedBackground_Phone />,
       solution: {
         type: t("ServicesSection.Services.1.solution.type"),
         title: t("ServicesSection.Services.1.solution.title"),
@@ -36,7 +37,9 @@ export default function Home() {
     {
       id: "web",
       title: t("ServicesSection.Services.2.title"),
-      image: "/assets/slides/desarollo-web.png",
+      // image: "/assets/slides/desarollo-web.png",
+      animation: <AnimatedBackground_Desktop />,
+
       solution: {
         type: t("ServicesSection.Services.2.solution.type"),
         title: t("ServicesSection.Services.2.solution.title"),
@@ -48,7 +51,9 @@ export default function Home() {
     {
       id: "assistants",
       title: t("ServicesSection.Services.3.title"),
-      image: "/assets/slides/new-asistentes.png",
+      // image: "/assets/slides/new-asistentes.png",
+      animation: <AnimatedBackground_PhoneNet />,
+
       solution: {
         type: t("ServicesSection.Services.3.solution.type"),
         title: t("ServicesSection.Services.3.solution.title"),
@@ -60,7 +65,8 @@ export default function Home() {
     {
       id: "automation",
       title: t("ServicesSection.Services.4.title"),
-      image: "/assets/slides/desarrollo-chatbots.png",
+      // image: "/assets/slides/desarrollo-chatbots.png",
+      animation: <AnimatedBackground_Datacenter />,
       solution: {
         type: t("ServicesSection.Services.4.solution.type"),
         title: t("ServicesSection.Services.4.solution.title"),
@@ -79,19 +85,6 @@ export default function Home() {
         {/* Cada sección snappea */}
         <section className="relative snap-start">
           <NewHeroWithLogo />
-        </section>
-
-        <section className="relative snap-start">
-          <AnimatedBackground_Phone />
-        </section>
-        <section className="relative snap-start">
-          <AnimatedBackground_PhoneNet />
-        </section>
-        <section className="relative snap-start">
-          <AnimatedBackground_Desktop />
-        </section>
-        <section className="relative snap-start">
-          <AnimatedBackground_Datacenter />
         </section>
 
         <section className="snap-start">

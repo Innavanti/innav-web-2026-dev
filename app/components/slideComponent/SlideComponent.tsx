@@ -22,6 +22,7 @@ type SlideProps = {
   solution?: Solution;
   href?: string;
   target?: string;
+  animation?: React.ReactNode;
 
   /** ✅ importantísimo: el contenedor que scrollea (el <main> con overflow-y-auto) */
   scrollRef: RefObject<HTMLElement | null>;
@@ -35,6 +36,7 @@ export const SlideComponent = ({
   target,
   scrollRef,
   id,
+  animation,
 }: SlideProps) => {
   const t = useTranslations("HomePage.ServicesSection");
 
@@ -95,6 +97,11 @@ export const SlideComponent = ({
               className="object-contain object-bottom pointer-events-none"
               priority
             />
+          </div>
+        )}
+        {animation && (
+          <div className="w-full  h-auto relative mb-10 lg:max-w-[75vw] xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex inset-0 m-auto pointer-events-none">
+            {animation}
           </div>
         )}
 

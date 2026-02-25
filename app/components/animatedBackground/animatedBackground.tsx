@@ -43,7 +43,10 @@ export const AnimatedBackground_Phone = () => {
   const imagePath = "/assets/animated_backgrounds/phone_messages";
 
   return (
-    <div className="relative w-screen h-screen">
+    <div
+      className="relative w-full h-full "
+      style={{ transform: `translate(0px, -50px)` }}
+    >
       <StylesCSS />
       <Glow className={className} />
 
@@ -135,7 +138,7 @@ export const AnimatedBackground_PhoneNet = () => {
     "m512,450 l 150, 150",
   ];
   return (
-    <div className="relative w-screen h-screen">
+    <div className="relative w-full h-full">
       <StylesCSS />
       {/* Phone  */}
       <Image
@@ -322,7 +325,7 @@ export const AnimatedBackground_Desktop = () => {
   ];
 
   return (
-    <div className="relative w-screen h-screen">
+    <div className="relative w-full h-full">
       <StylesCSS />
       <Glow className={className} />
       <EnergyContainer viewBox="0 0 2400 1536">
@@ -422,7 +425,7 @@ export const AnimatedBackground_Datacenter = () => {
     { duration: "2.1s", path: "/cpu.png" },
   ];
   return (
-    <div className="relative w-screen h-screen">
+    <div className="relative w-full h-full">
       <StylesCSS />
       <Glow className={className} />
       <EnergyContainer viewBox="0 0 1080 1080" className=" ">

@@ -116,7 +116,7 @@ export const HeroAnimated = () => {
           <SparklesCore particleDensity={25} overscanY={220} />
         </div>
       </article>
-      <section className="bottom-[7%] absolute inset-x-0 lg:flex lg:flex-row lg:justify-center justify-items-stretch items-stretch gap-5 lg:gap-10 grid grid-cols-2 auto-rows-fr m-auto px-[3%] lg:px-[10vw] w-full lg:w-fit md:max-w-[70vw] lg:max-w-max lg:max-h-10">
+      <section className="bottom-[7%] absolute inset-x-0 text-white lg:flex lg:flex-row lg:justify-center justify-items-stretch items-stretch gap-5 lg:gap-10 grid grid-cols-2 auto-rows-fr m-auto px-[3%] lg:px-[10vw] w-full lg:w-fit md:max-w-[70vw] lg:max-w-max lg:max-h-10">
         {HomeButtons.map((button, index) => (
           <HomeButton key={index} {...button} />
         ))}
