@@ -5,8 +5,8 @@ export const StylesCSS = () => {
     <style>
       {`@keyframes HoverFrames 
         {
-            from { transform: translate(0, 0); }
-            to { transform: translate(0px, 10px); }
+            from { transform: translate(0%, 0%); }
+            to { transform: translate(0%, 2%); }
         }
 
         @keyframes GlowFrames 
@@ -39,13 +39,12 @@ export const StylesCSS = () => {
 export const AnimatedBackground_Phone = () => {
   const className =
     "absolute drop-shadow-2xl w-full h-full object-contain animate-hover ";
-  const relative_height = 50;
   const imagePath = "/assets/animated_backgrounds/phone_messages";
 
   return (
     <div
-      className="relative w-full h-full "
-      style={{ transform: `translate(0px, -50px)` }}
+      className="relative w-full h-full"
+      style={{ transform: `translate(0px, -0px)` }}
     >
       <StylesCSS />
       <Glow className={className} />
@@ -67,10 +66,7 @@ export const AnimatedBackground_Phone = () => {
         <EnergyNode path="m1300,950 m0,-400 v400" trail duration="2.2s" />
       </EnergyContainer>
       {/* Message 1 */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height - 50}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/message1.webp"}
           alt="Loading..."
@@ -79,10 +75,7 @@ export const AnimatedBackground_Phone = () => {
         />
       </div>
       {/* Message 2 (L Shape) */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height - 30}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/message2.png"}
           alt="Loading..."
@@ -92,10 +85,7 @@ export const AnimatedBackground_Phone = () => {
       </div>
 
       {/* Message 3  */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height * 1.8}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/message3.png"}
           alt="Loading..."
@@ -104,10 +94,7 @@ export const AnimatedBackground_Phone = () => {
         />
       </div>
       {/* Message 4 (Top square) */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height * 2.5}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/message6.webp"}
           alt="Loading..."
@@ -120,22 +107,21 @@ export const AnimatedBackground_Phone = () => {
 };
 
 export const AnimatedBackground_PhoneNet = () => {
-  const className = "absolute w-full h-full object-contain  ";
-  const relative_height = 100;
+  const className = "absolute w-full h-full object-contain ";
   const imagePath = "/assets/animated_backgrounds/phone_net";
 
   const EnergyNodePaths = [
-    "m512,450 l  40,-180 ",
-    "m512,450 l  10, 200",
-    "m512,450 l -20, 150",
-    "m512,450 l 310,  10",
-    "m512,450 l-230, -70",
-    "m512,450 l 200,-100",
-    "m512,450 l-230,  70",
-    "m512,450 l-150,-150",
-    "m512,450 l 190,-150",
-    "m512,450 l-150, 150",
-    "m512,450 l 150, 150",
+    "m512,325 l  40, -180 ",
+    "m512,325 l  10,  200",
+    "m512,325 l -20,  150",
+    "m512,325 l 310,   10",
+    "m512,325 l-230,  -70",
+    "m512,325 l 200, -100",
+    "m512,325 l-230,   70",
+    "m512,325 l-150, -150",
+    "m512,325 l 190, -150",
+    "m512,325 l-150,  150",
+    "m512,325 l 150,  150",
   ];
   return (
     <div className="relative w-full h-full">
@@ -148,24 +134,26 @@ export const AnimatedBackground_PhoneNet = () => {
         fill
         className={className}
       />
-      <EnergyContainer viewBox="0 0 1024 1024">
-        {EnergyNodePaths.map((path, index) => (
-          <EnergyNode
-            key={index}
-            path={path}
-            trail
-            blue
-            duration={`${1 + index * 0.1}s`}
-            delay={`${index * 0.1}s`}
-          />
-        ))}
-      </EnergyContainer>
+      <div
+        className={className + " animate-hover "}
+        style={{ animationDuration: "2s", animationDelay: "1.5s" }}
+      >
+        <EnergyContainer viewBox="0 0 1024 1024">
+          {EnergyNodePaths.map((path, index) => (
+            <EnergyNode
+              key={index}
+              path={path}
+              trail
+              blue
+              duration={`${1 + index * 0.1}s`}
+              delay={`${index * 0.1}s`}
+            />
+          ))}
+        </EnergyContainer>
+      </div>
 
       {/* Sphere  */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/sphere.webp"}
           alt="Innavanti Logo"
@@ -210,10 +198,7 @@ export const AnimatedBackground_PhoneNet = () => {
 
       {/* ---------------- Messages ----------------  */}
       {/* Messages back */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/chat1.webp"}
           alt="Innavanti Logo"
@@ -223,10 +208,7 @@ export const AnimatedBackground_PhoneNet = () => {
           style={{ animationDuration: "2s", animationDelay: "0s" }}
         />
       </div>
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/chat2.webp"}
           alt="Innavanti Logo"
@@ -236,10 +218,7 @@ export const AnimatedBackground_PhoneNet = () => {
           style={{ animationDuration: "2s", animationDelay: ".8s" }}
         />
       </div>
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/chat3.webp"}
           alt="Innavanti Logo"
@@ -249,10 +228,7 @@ export const AnimatedBackground_PhoneNet = () => {
           style={{ animationDuration: "2s", animationDelay: "0.4s" }}
         />
       </div>
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/chat4.webp"}
           alt="Innavanti Logo"
@@ -264,10 +240,7 @@ export const AnimatedBackground_PhoneNet = () => {
       </div>
 
       {/* Messages Front  */}
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/chat5.webp"}
           alt="Innavanti Logo"
@@ -277,10 +250,7 @@ export const AnimatedBackground_PhoneNet = () => {
           style={{ animationDuration: "2s", animationDelay: "0.5s" }}
         />
       </div>
-      <div
-        className="absolute w-full h-full"
-        style={{ transform: `translate(0px, ${relative_height}px)` }}
-      >
+      <div className="absolute w-full h-full">
         <Image
           src={imagePath + "/chat6.webp"}
           alt="Innavanti Logo"
