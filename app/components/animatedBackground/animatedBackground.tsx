@@ -22,37 +22,34 @@ export const StylesCSS = () => {
         }
         .animate-glow
         {
-
             animation: GlowFrames  linear infinite;
             animation-direction: alternate;
             animation-timing-function: ease-in-out;
         }
-        .anim-duration-2 { animation-duration: 2s; }
-        .anim-duration-3 { animation-duration: 3s; }
-        .anim-duration-4 { animation-duration: 4s; }
-        .anim-duration-5 { animation-duration: 2.5s; }
         `}
     </style>
   );
 };
 
 export const AnimatedBackground_Phone = () => {
-  const className =
-    "absolute drop-shadow-2xl w-full h-full object-contain animate-hover ";
-  const imagePath = "/assets/animated_backgrounds/phone_messages";
+  const className = "absolute drop-shadow-2xl w-full h-full object-contain ";
+  const folderPath = "/assets/animated_backgrounds/phone_messages";
+  const ImagePaths = [
+    "/message1.webp",
+    "/message2.webp",
+    "/message3.webp",
+    "/message4.webp",
+  ];
 
   return (
-    <div
-      className="relative w-full h-full"
-      style={{ transform: `translate(0px, -0px)` }}
-    >
+    <div className="relative w-full h-full">
       <StylesCSS />
       <Glow className={className} />
 
       {/* Phone  */}
       <Image
-        src={imagePath + "/phone.webp"}
-        alt="Loading..."
+        src={folderPath + "/phone.webp"}
+        alt="phone messages"
         fill
         className={className}
       />
@@ -65,51 +62,37 @@ export const AnimatedBackground_Phone = () => {
         <EnergyNode path="m1000,900 m0,-400 v400" trail duration="2s" />
         <EnergyNode path="m1300,950 m0,-400 v400" trail duration="2.2s" />
       </EnergyContainer>
-      {/* Message 1 */}
-      <div className="absolute w-full h-full">
-        <Image
-          src={imagePath + "/message1.webp"}
-          alt="Loading..."
-          fill
-          className={className + "anim-duration-2 opacity-80 "}
-        />
-      </div>
-      {/* Message 2 (L Shape) */}
-      <div className="absolute w-full h-full">
-        <Image
-          src={imagePath + "/message2.png"}
-          alt="Loading..."
-          fill
-          className={className + "anim-duration-3 opacity-80"}
-        />
-      </div>
 
-      {/* Message 3  */}
-      <div className="absolute w-full h-full">
+      {/* Message Images */}
+      {ImagePaths.map((path, index) => (
         <Image
-          src={imagePath + "/message3.png"}
-          alt="Loading..."
+          src={folderPath + path}
+          alt={`phone_messages_${path}`}
+          key={`phone_messages_${path}`}
           fill
-          className={className + "anim-duration-4  opacity-80 "}
+          className={className + "animate-hover opacity-80"}
+          style={{
+            animationDuration: `${2 + index * 0.1}s`,
+            animationDelay: `${index * 0.1}s`,
+          }}
         />
-      </div>
-      {/* Message 4 (Top square) */}
-      <div className="absolute w-full h-full">
-        <Image
-          src={imagePath + "/message6.webp"}
-          alt="Loading..."
-          fill
-          className={className + "anim-duration-5 opacity-70  "}
-        />
-      </div>
+      ))}
     </div>
   );
 };
 
 export const AnimatedBackground_PhoneNet = () => {
   const className = "absolute w-full h-full object-contain ";
-  const imagePath = "/assets/animated_backgrounds/phone_net";
 
+  const folderPath = "/assets/animated_backgrounds/phone_net";
+  const ImagePaths = [
+    "/chat1.webp",
+    "/chat2.webp",
+    "/chat3.webp",
+    "/chat4.webp",
+    "/chat5.webp",
+    "/chat6.webp",
+  ];
   const EnergyNodePaths = [
     "m512,325 l  40, -180 ",
     "m512,325 l  10,  200",
@@ -123,17 +106,20 @@ export const AnimatedBackground_PhoneNet = () => {
     "m512,325 l-150,  150",
     "m512,325 l 150,  150",
   ];
+
   return (
     <div className="relative w-full h-full">
       <StylesCSS />
       {/* Phone  */}
       <Image
         id="mask"
-        src={imagePath + "/phone.webp"}
+        src={folderPath + "/phone.webp"}
         alt="Innavanti Logo"
         fill
         className={className}
       />
+
+      {/* Sphere  */}
       <div
         className={className + " animate-hover "}
         style={{ animationDuration: "2s", animationDelay: "1.5s" }}
@@ -150,17 +136,12 @@ export const AnimatedBackground_PhoneNet = () => {
             />
           ))}
         </EnergyContainer>
-      </div>
-
-      {/* Sphere  */}
-      <div className="absolute w-full h-full">
         <Image
-          src={imagePath + "/sphere.webp"}
+          src={folderPath + "/sphere.webp"}
           alt="Innavanti Logo"
           fill
           id="mask"
-          className={className + " animate-hover opacity-90"}
-          style={{ animationDuration: "2s", animationDelay: "1.5s" }}
+          className={className + " opacity-90"}
         />
       </div>
 
@@ -189,77 +170,27 @@ export const AnimatedBackground_PhoneNet = () => {
           r="20%"
           style={{
             transformOrigin: "50% 70%",
+            animationDuration: "2s",
           }}
           fill="url('#myGradient')"
-          // fill="red"
-          className="animate-glow anim-duration-2"
+          className="animate-glow"
         />
       </svg>
 
-      {/* ---------------- Messages ----------------  */}
-      {/* Messages back */}
-      <div className="absolute w-full h-full">
+      {/* ---------------- Message Images ----------------  */}
+      {ImagePaths.map((path, index) => (
         <Image
-          src={imagePath + "/chat1.webp"}
-          alt="Innavanti Logo"
+          src={folderPath + path}
+          alt={`phone_net_${path}`}
+          key={`phone_net_${path}`}
           fill
-          id="mask"
           className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: "0s" }}
+          style={{
+            animationDuration: `${2.5 + index * 0.1}s`,
+            animationDelay: `${index * 0.1}s`,
+          }}
         />
-      </div>
-      <div className="absolute w-full h-full">
-        <Image
-          src={imagePath + "/chat2.webp"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: ".8s" }}
-        />
-      </div>
-      <div className="absolute w-full h-full">
-        <Image
-          src={imagePath + "/chat3.webp"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: "0.4s" }}
-        />
-      </div>
-      <div className="absolute w-full h-full">
-        <Image
-          src={imagePath + "/chat4.webp"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: "1s" }}
-        />
-      </div>
-
-      {/* Messages Front  */}
-      <div className="absolute w-full h-full">
-        <Image
-          src={imagePath + "/chat5.webp"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-70 "}
-          style={{ animationDuration: "2s", animationDelay: "0.5s" }}
-        />
-      </div>
-      <div className="absolute w-full h-full">
-        <Image
-          src={imagePath + "/chat6.webp"}
-          alt="Innavanti Logo"
-          fill
-          id="mask"
-          className={className + " animate-hover opacity-80"}
-          style={{ animationDuration: "2s", animationDelay: "0s" }}
-        />
-      </div>
+      ))}
     </div>
   );
 };
@@ -267,14 +198,19 @@ export const AnimatedBackground_PhoneNet = () => {
 export const AnimatedBackground_Desktop = () => {
   const className = "absolute w-full h-full object-contain ";
   const folderPath = "/assets/animated_backgrounds/desktop";
-  const ImagePaths = [
-    "/charts_v1.png",
-    "/code1_v1.png",
-    "/code2_v1.png",
-    "/keyboard_v1.png",
-    "/mousepad_v1.png",
-  ];
 
+  const ImagePaths = [
+    "/charts.webp",
+    "/code1.webp",
+    "/code2.webp",
+    "/keyboard.webp",
+    "/mousepad.webp",
+  ];
+  const ScreenImagePaths = [
+    "/screen_display.webp",
+    "/screen_content.webp",
+    "/screen_body.webp",
+  ];
   const EnergyNodePaths = [
     "m0590,570 v300",
     "m775,800 v300",
@@ -284,7 +220,6 @@ export const AnimatedBackground_Desktop = () => {
     "m1750,800 v300",
     "m2100,1000 v300",
   ];
-
   const DataLinkPaths = [
     "m0550,600 l150,80",
     "m0750,780 l150,-80",
@@ -320,28 +255,16 @@ export const AnimatedBackground_Desktop = () => {
         ))}
       </EnergyContainer>
 
-      <Image
-        src={folderPath + "/screen2_v1.png"}
-        alt={`desktop-${"/screen2_v1.png"}`}
-        fill
-        id="mask"
-        className={className}
-      />
-      <Image
-        src={folderPath + "/screen_v1.png"}
-        alt={`desktop-${"/screen_v1.png"}`}
-        fill
-        id="mask"
-        className={className + " animate-pulse "}
-        style={{ animationDuration: "2s" }}
-      />
-      <Image
-        src={folderPath + "/screen3_v1.png"}
-        alt={`desktop-${"/screen3_v1.png"}`}
-        fill
-        id="mask"
-        className={className}
-      />
+      {/* Screen Images  */}
+      {ScreenImagePaths.map((path, index) => (
+        <Image
+          key={index}
+          src={folderPath + path}
+          alt={`desktop-${path}`}
+          fill
+          className={className + ` ${index == 1 && "animate-pulse"}`}
+        />
+      ))}
 
       {/* Animated Images  */}
       {ImagePaths.map((path, index) => (
@@ -364,7 +287,6 @@ export const AnimatedBackground_Desktop = () => {
 
 export const AnimatedBackground_Datacenter = () => {
   const className = "absolute w-full h-full object-contain  ";
-  const relative_height = 0;
   const imagePath = "/assets/animated_backgrounds/datacenter";
 
   const DataLinkPaths = [
@@ -388,11 +310,11 @@ export const AnimatedBackground_Datacenter = () => {
   ];
 
   const ImagePaths = [
-    { duration: "2.6s", path: "/devices.png" },
-    { duration: "2.4s", path: "/gpu.png" },
-    { duration: "2.2s", path: "/auth.png" },
-    { duration: "2.3s", path: "/storage.png" },
-    { duration: "2.1s", path: "/cpu.png" },
+    { path: "/internal-devices.webp" },
+    { path: "/internal-gpu.webp" },
+    { path: "/internal-auth.webp" },
+    { path: "/internal-storage.webp" },
+    { path: "/internal-cpu.webp" },
   ];
   return (
     <div className="relative w-full h-full">
@@ -413,20 +335,20 @@ export const AnimatedBackground_Datacenter = () => {
       {/* ---------- Image Files ---------- */}
       <>
         <Image
-          src={imagePath + "/base.png"}
+          src={imagePath + "/base.webp"}
           alt="Innavanti Logo"
           fill
-          className={className}
+          className={className + " "}
         />
         <Image
-          src={imagePath + "/glass.png"}
+          src={imagePath + "/glass.webp"}
           alt="Innavanti Logo"
           fill
           className={className + "opacity-50"}
         />
 
         {/* Animated components  */}
-        {ImagePaths.map(({ path, duration }, index) => (
+        {ImagePaths.map(({ path }, index) => (
           <Image
             key={"datacenter_component_" + index}
             src={imagePath + path}
@@ -440,7 +362,7 @@ export const AnimatedBackground_Datacenter = () => {
           />
         ))}
         <Image
-          src={imagePath + "/glass-detail.png"}
+          src={imagePath + "/glass-detail.webp"}
           alt="Innavanti Logo"
           fill
           className={className}
@@ -500,14 +422,12 @@ const EnergyLine = ({
   path = "M500, 600 l0,-500",
   duration = "2s",
   id,
-
   delay = "0s",
   line = false,
 }: {
   path?: string;
   duration?: string;
   id: string;
-
   delay?: string;
   line?: boolean;
 }) => {
