@@ -43,7 +43,7 @@ export const ContextComp = ({
 
   const screenHeight = CardList.length * 100;
 
-  const x = useTransform(scrollYProgress, [0, 0.95], ["200vw", "-200vw"]);
+  const x = useTransform(scrollYProgress, [0, 0.95], ["150vw", "-150vw"]);
 
   const [isLg, setIsLg] = useState(false);
 
@@ -109,8 +109,8 @@ export const ContextCard = ({
       className="
         relative
         outline outline-primary-1-400/40
-        rounded-2xl p-3 *:lg:p-5 gap-6
-        bg-black/20
+        rounded-2xl p-3 lg:p-5 gap-6
+        bg-primary-1-500/10
         backdrop-blur-sm
         md:w-auto h-full
         max-h-67.5 md:aspect-square
@@ -120,9 +120,7 @@ export const ContextCard = ({
         shadow-[0_8px_32px_rgba(0,0,0,0.35)]
       "
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-b from-white/10 to-transparent" />
-
-      <div className="relative aspect-square w-14 outline bg-[#3EB0C8]/20 outline-primary-1-500 text-primary-1-500 rounded-lg flex items-center justify-center text-xl lg:text-3xl">
+      <div className="relative aspect-square h-auto w-14 outline bg-primary-1-500/20 outline-primary-1-500 text-primary-1-500 rounded-lg flex items-center justify-center text-xl lg:text-3xl">
         {icon}
       </div>
 
