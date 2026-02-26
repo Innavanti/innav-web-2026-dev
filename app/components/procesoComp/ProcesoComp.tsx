@@ -59,36 +59,36 @@ export const ProcesoComp = () => {
 
     let raf = 0;
 
-    const pickCentre = () => {
-      const centreY = window.innerHeight / 2;
+    // const pickCentre = () => {
+    //   const centreY = window.innerHeight / 2;
 
-      let bestIdx = 0;
-      let bestDist = Number.POSITIVE_INFINITY;
+    //   let bestIdx = 0;
+    //   let bestDist = Number.POSITIVE_INFINITY;
 
-      for (let i = 0; i < COUNT; i++) {
-        const el = itemRefs.current[i];
-        if (!el) continue;
+    //   for (let i = 0; i < COUNT; i++) {
+    //     const el = itemRefs.current[i];
+    //     if (!el) continue;
 
-        const r = el.getBoundingClientRect();
-        const elCentreY = r.top + r.height / 2;
-        const dist = Math.abs(elCentreY - centreY);
+    //     const r = el.getBoundingClientRect();
+    //     const elCentreY = r.top + r.height / 2;
+    //     const dist = Math.abs(elCentreY - centreY);
 
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestIdx = i;
-        }
-      }
+    //     if (dist < bestDist) {
+    //       bestDist = dist;
+    //       bestIdx = i;
+    //     }
+    //   }
 
-      setActiveIndex(bestIdx);
-    };
+    //   setActiveIndex(bestIdx);
+    // };
 
     const onScroll = () => {
       cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(pickCentre);
+      // raf = requestAnimationFrame(pickCentre);
     };
 
     // initial pick
-    pickCentre();
+    // pickCentre();
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
