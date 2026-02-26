@@ -78,7 +78,7 @@ export const SlideComponent = ({
         style={{ scale, y }}
       >
         {/* Title */}
-        <div className="w-full lg:m-0 h-fit lg:w-fit lg:h-fit relative flex  left-[0%] lg:top-[20%]">
+        <div className="w-full lg:m-0 h-fit lg:w-fit lg:h-fit relative flex lg:absolute left-[0%] lg:top-[15%]">
           <motion.h1
             className="text-4xl lg:text-7xl uppercase font-semibold"
             style={{ scale: textScale }}
@@ -100,7 +100,7 @@ export const SlideComponent = ({
           </div>
         )}
         {animation && (
-          <div className="w-full  h-auto relative mb-10 lg:max-w-[75vw] xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex inset-0 m-auto pointer-events-none">
+          <div className="w-full  h-auto relative mb-10 lg:max-w-[75vw]  xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex inset-0 m-auto pointer-events-none">
             {animation}
           </div>
         )}
@@ -109,35 +109,37 @@ export const SlideComponent = ({
         <motion.div
           animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="flex flex-col gap-5 relative w-full h-fit lg:h-full"
+          className="absolute w-full inset-x-0 m-auto h-fit bottom-0"
         >
-          {solution?.type && (
-            <div className="lg:flex flex-row gap-4 absolute bottom-[25%] left-0 px-1.5 hidden">
-              <p className="outline outline-primary-1-500 px-2 rounded-full">
-                {solution.type}
-              </p>
-              <p>{solution.title}</p>
+          <div className="relative flex flex-row justify-between">
+            {solution?.type && (
+              <div className="lg:flex flex-row gap-4 hidden">
+                <p className="outline outline-primary-1-500 px-2 rounded-full h-fit">
+                  {solution.type}
+                </p>
+                <p>{solution.title}</p>
+              </div>
+            )}
+
+            <div className="lg:aspect-17/8 lg:max-w-87.5 w-full  flex flex-col gap-3 right-0 h-fit lg:h-auto ">
+              <h1 className="uppercase font-bold text-primary-1-500">
+                {solution?.descTitle}
+              </h1>
+              <p className="font-light leading-7">{solution?.desc}</p>
             </div>
-          )}
 
-          <div className="lg:aspect-17/8 lg:max-w-87.5 w-full lg:absolute bottom-[10%] flex flex-col gap-3 right-0 h-fit lg:h-auto">
-            <h1 className="uppercase font-bold text-primary-1-500">
-              {solution?.descTitle}
-            </h1>
-            <p className="font-light leading-7">{solution?.desc}</p>
+            {href && (
+              <Link href={href} target={target} className="group">
+                <button className="px-5 py-2 flex flex-row items-center relative lg:absolute bottom-[20%] lg:bottom-[5%] inset-x-0 w-fit m-auto bg-white text-slate-950 font-semibold text-sm tracking-wide uppercase rounded-full hover:bg-slate-700 hover:text-white transition-colors duration-300">
+                  {t("buttonText")}
+                  <FiArrowRight
+                    size={19}
+                    className="group-hover:-rotate-12 transition-transform duration-300 ease-initial"
+                  />
+                </button>
+              </Link>
+            )}
           </div>
-
-          {href && (
-            <Link href={href} target={target} className="group">
-              <button className="px-5 py-2 flex flex-row items-center relative lg:absolute bottom-[20%] lg:bottom-[5%] inset-x-0 w-fit m-auto bg-white text-slate-950 font-semibold text-sm tracking-wide uppercase rounded-full hover:bg-slate-700 hover:text-white transition-colors duration-300">
-                {t("buttonText")}
-                <FiArrowRight
-                  size={19}
-                  className="group-hover:-rotate-12 transition-transform duration-300 ease-initial"
-                />
-              </button>
-            </Link>
-          )}
         </motion.div>
       </motion.article>
     </main>

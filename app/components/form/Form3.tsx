@@ -57,7 +57,7 @@ export const Form3 = () => {
         </section>
         <MediaSection className="lg:hidden" />
       </div>
-      <p className="w-fit h-fit bottom-2 lg:bottom-[4%] inset-x-0 m-auto absolute text-xs lg:text-base">
+      <p className="w-fit h-fit bottom-2  inset-x-0 m-auto absolute text-xs lg:text-base">
         <span>&#169; </span>
         {t("copyright")}
       </p>
@@ -125,7 +125,7 @@ export const GradientForm = () => {
               <Input type="email" placeholder={t("emailPH")} />
             </div>
           </section>
-          <section className="w-full h-fit flex flex-row">
+          <section className="w-full h-fit flex flex-row ">
             <div className="w-full h-fit flex flex-col gap-1.5">
               <p className="font-thin">{t("message")}</p>
               <Input
@@ -136,7 +136,7 @@ export const GradientForm = () => {
             </div>
           </section>
           <section>
-            <div className="flex w-full justify-center">
+            <div className="flex w-full justify-center lg:mt-5">
               <MovingBorderButton
                 className="uppercase font-semibold flex flex-row gap-1.5 w-full cursor-pointer"
                 containerClassName="w-full max-w-[70%] self-center justify-self-center h-12"
