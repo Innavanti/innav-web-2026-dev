@@ -46,7 +46,6 @@ export default function Home() {
         descTitle: t("ServicesSection.Services.2.solution.descTitle"),
         desc: t("ServicesSection.Services.2.solution.desc"),
       },
-      href: "/",
     },
     {
       id: "assistants",
@@ -60,7 +59,6 @@ export default function Home() {
         descTitle: t("ServicesSection.Services.3.solution.descTitle"),
         desc: t("ServicesSection.Services.3.solution.desc"),
       },
-      href: "/",
     },
     {
       id: "automation",

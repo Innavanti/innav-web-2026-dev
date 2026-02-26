@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { CgMenu } from "react-icons/cg";
 import { FiX } from "react-icons/fi";
+import { IoIosArrowDown } from "react-icons/io";
 
 export const Navbar5 = () => {
   const t = useTranslations("nav");
@@ -86,9 +87,12 @@ const ServiceButton = ({ className }: { className?: string }) => {
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        className={`relative hover:outline-2 outline-0 text-white/70 hover:text-white hover:font-semibold font-light outline-primary-2-500 px-3 py-1 rounded-full transition-all duration-100 ease-in-out ${className}`}
+        className={`relative flex flex-row items-center gap-1 hover:outline-2 outline-0 text-white/70 hover:text-white hover:font-semibold font-light outline-primary-2-500 px-3 py-1 rounded-full transition-all duration-100 ease-in-out ${className}`}
       >
         <p>{t("soluciones.title")}</p>
+        <IoIosArrowDown
+          className={`${isOpen ? "rotate-180" : "rotate-0"} transition-all duration-200 ease-in-out`}
+        />
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -101,11 +105,11 @@ const ServiceButton = ({ className }: { className?: string }) => {
               <p className="text-primary-2-500 text-sm">
                 {t("soluciones.title")}
               </p>
-              <ul className="pl-1.5 text-sm gap-3.5 flex flex-col">
+              <ul className=" text-sm gap-3.5 flex flex-col">
                 {solutions.map((item) => (
                   <Link
                     href={item.href}
-                    className="w-full text-start"
+                    className="p-1.5 w-full text-start hover:bg-primary-1-100/20 transition-all duration-200 ease-in-out rounded-lg"
                     key={item.title}
                   >
                     {item.title}
