@@ -88,7 +88,7 @@ export const Caso = ({ title, desc, type, image }: CasoProps) => {
     w-1/3 h-full absolute right-0 group-hover:z-50
     [--maskLeft:transparent]
     group-hover:[--maskLeft:black]
-    [mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_40%)]
+    [mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_35%)]
     [webkit-mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_40%)]
     group-hover:scale-[200%] transition-all duration-300 ease-in-out 
 
@@ -107,10 +107,12 @@ export const Caso = ({ title, desc, type, image }: CasoProps) => {
         <h1 className="text-2xl font-semibold uppercase">{title}</h1>
         <FiArrowRight className="text-primary-1-500 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out " />
       </div>
-      <div className="flex flex-row gap-2 items-center relative">
+      <div className="flex flex-col md:flex-row gap-2 relative w-fit items-start text-white/70 font-thin">
         <p>{desc}</p>
-        <div className="w-2 h-auto aspect-square rounded-full bg-white" />
-        <p className="">{type}</p>
+        <div className="flex flex-row gap-2 items-center">
+          <div className="w-2 h-auto aspect-square rounded-full bg-white/70 " />
+          <p className="">{type}</p>
+        </div>
       </div>
     </div>
   );
