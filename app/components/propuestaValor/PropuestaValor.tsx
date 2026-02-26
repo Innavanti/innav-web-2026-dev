@@ -15,6 +15,7 @@ export const PropuestaValor = () => {
       icon: <LiaBrainSolid />,
       title: t("cards.1.title"),
       desc: t("cards.1.desc"),
+      className: "col-span-2",
     },
     {
       icon: <TbDeviceDesktopCog />,
@@ -41,8 +42,8 @@ export const PropuestaValor = () => {
           className="flex items-center justify-center flex-col w-full h-full "
         />
       </div>
-      <div className="w-full h-full lg:h-auto lg:aspect-video flex flex-col gap-7 lg:gap-4 lg:grid grid-cols-2 grid-rows-[minmax(0,230px)_1fr] lg:py-8">
-        <section className="w-full h-fit lg:h-full  flex flex-col gat-28 justify-center relative ">
+      <div className="w-full h-full lg:h-auto lg:aspect-video flex flex-col gap-7 justify-evenly lg:gap-4 lg:grid grid-cols-2 grid-rows-[minmax(0,230px)_1fr] lg:py-8">
+        <section className="w-full h-fit lg:h-full  flex flex-col gap-28 justify-center relative ">
           <h1 className="text-3xl lg:text-5xl font-semibold w-full h-fit">
             {t("title")}
           </h1>
@@ -64,7 +65,7 @@ export const PropuestaValor = () => {
         </div>
         <section className="w-full self-end lg:h-full relative  flex flex-col lg:gap-1 justify-between col-start-2 col-end-3 row-start-2 row-end-3">
           <div className="w-full h-fit">
-            <div className="w-full flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory lg:overflow-visible lg:snap-none lg:justify-center">
+            <div className="w-full lg:flex gap-4 lg:gap-4 grid grid-cols-2 lg:overflow-visible lg:snap-none lg:justify-center">
               {cards.map((card, index) => (
                 <ValueCard key={index} {...card} />
               ))}
@@ -97,14 +98,14 @@ export const ValueCard = ({
 }: GlassCardProps) => {
   return (
     <div
-      className={`relative inline-block text-white shrink-0 snap-start lg:shrink ${className}`}
+      className={`relative inline-block text-white shrink-0 snap-start  lg:shrink ${className}`}
     >
-      <div className="flex flex-col justify-around aspect-45/61 gap-3 w-full min-w-56 max-w-67.5 h-full px-5 py-6 rounded-[0.7rem] bg-white/[0.074] border border-primary-1-50/10 backdrop-blur-sm transition-all duration-300 ease-out hover:shadow-[0_0_20px_1px_#ffbb763f] hover:border-primary-1-50/[0.454]">
+      <div className="flex flex-col justify-around lg:aspect-45/61 gap-3 w-full lg:min-w-56 lg:max-w-67.5 h-full px-5 py-6 rounded-[0.7rem] bg-white/[0.074] border border-primary-1-50/10 backdrop-blur-xs transition-all duration-300 ease-out hover:shadow-[0_0_20px_1px_#ffbb763f] hover:border-primary-1-50/[0.454]">
         {icon ? (
           <div className="text-4xl text-primary-1-500 font-font">{icon}</div>
         ) : null}
         <h1 className="text-md font-bold">{title}</h1>
-        <p className="text-sm opacity-80">{desc}</p>
+        <p className="text-sm opacity-80 hidden lg:block">{desc}</p>
       </div>
     </div>
   );
