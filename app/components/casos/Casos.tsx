@@ -90,7 +90,7 @@ export const Caso = ({ title, desc, type, image }: CasoProps) => {
     group-hover:[--maskLeft:black]
     [mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_35%)]
     [webkit-mask-image:linear-gradient(to_right,var(--maskLeft)_0%,black_40%)]
-    group-hover:scale-[200%] transition-all duration-300 ease-in-out 
+    lg:group-hover:scale-[200%] transition-all duration-300 ease-in-out select-none
 
   "
         >

@@ -109,7 +109,7 @@ export const SlideComponent = ({
         <motion.div
           animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="absolute w-full inset-x-0 m-auto h-fit bottom-0"
+          className="relative lg:absolute w-full inset-x-0 m-auto h-fit bottom-0"
         >
           <div className="relative flex flex-row justify-between">
             {solution?.type && (

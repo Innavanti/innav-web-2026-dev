@@ -106,7 +106,7 @@ export default function Home() {
           <ProcesoComp />
         </section>
 
-        <section className="h-screen snap-start">
+        <section className="lg:h-screen snap-start">
           <Casos />
         </section>
 
