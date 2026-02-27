@@ -35,7 +35,7 @@ export const Casos = () => {
   return (
     <article
       id="casos"
-      className="w-screen h-screen py-10  flex  gap-20 overflow-hidden justify-center items-center relative text-white"
+      className="w-screen lg:h-screen pt-6 pb-10 lg:py-10  flex  gap-20 overflow-hidden justify-center items-center relative text-white"
     >
       <div className="absolute w-2.5 aspect-square pointer-events-none inset-x-0 m-auto bottom-[25%] z-10">
         <Vortex

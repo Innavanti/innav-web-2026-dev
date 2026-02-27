@@ -35,11 +35,11 @@ export const Form3 = () => {
   return (
     <article
       id="contacto"
-      className="w-screen h-fit min-h-screen lg:h-screen flex relative flex-row justify-center items-center py-[10%] px-[5vw] lg:px-[10vw] text-white"
+      className="w-screen h-fit min-h-screen lg:h-screen flex relative flex-row justify-center items-center py-[15%] px-[5vw] lg:px-[10vw] text-white"
     >
       <div className="w-full h-full lg:max-h-[50vh] flex flex-col lg:flex-row gap-16 py-7 lg:py-0 items-stretch">
         <section className="w-full flex flex-col ">
-          <div className="w-full h-full flex flex-col gap-5 lg:gap-10 justify-between">
+          <div className="w-full h-full flex flex-col gap-3 lg:gap-10 justify-between">
             <h1 className="text-3xl lg:text-5xl font-bold">{t("title")}</h1>
             <div className="w-full h-fit flex flex-col gap-7">
               <p className="text-white lg:max-w-2/3 font-light lg:leading-7">

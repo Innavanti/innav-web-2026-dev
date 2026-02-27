@@ -89,7 +89,7 @@ export const HeroAnimated = () => {
         `}
       </style>
       <article className="flex flex-col justify-center items-center gap-0 px-[5%] lg:px-0 w-full h-full">
-        <div className="flex flex-col justify-end py-6 w-full h-full font-bold text-[32px] lg:text-[36px] text-center uppercase leading-tight">
+        <div className="flex flex-col justify-end py-6 w-full h-full font-bold text-3xl lg:text-[36px] text-center uppercase leading-tight">
           <h1 className="">
             {/*  */}
             <span
@@ -254,9 +254,9 @@ export const NewHeroWithLogo = () => {
       {/* --- LOGO --- */}
       <div
         ref={logoWrapperRef}
-        className="top-[15%] z-30 absolute lg:inset-0 opacity-0 m-auto w-fit h-fit lg:h-full pointer-events-none"
+        className="top-[15vh] z-30 absolute lg:inset-0 opacity-0 m-auto w-fit h-fit lg:h-full pointer-events-none"
       >
-        <div className="relative w-[80vw] md:min-w-[35vw] md:max-w-175 xl:max-w-48 aspect-video">
+        <div className="relative h-[21vh] lg:w-[80vw] lg:h-auto md:min-w-[35vw] md:max-w-175 xl:max-w-48 aspect-video">
           <div className="absolute inset-0 bg-[#2bb4c8]/30 opacity-40 blur-[80px] rounded-full animate-pulse" />
 
           <svg
@@ -385,11 +385,11 @@ export const HomeButton = ({
         /> */}
 
         <Link
-          className="lg:hidden relative flex justify-center items-center gap-2 px-3 py-3 rounded-full w-full h-full overflow-hidden not-visited:text-white"
+          className="lg:hidden relative flex justify-center items-center text-base font-semibold gap-2 px-3 py-3 rounded-full w-full h-full overflow-hidden not-visited:text-white"
           href={hrefMobile}
         >
           <div>{icon}</div>
-          <p className="relative w-fit h-fit font-bold text-white text-sm uppercase transition-colors duration-300">
+          <p className="relative w-fit h-fit font-bold text-white  uppercase transition-colors duration-300">
             {title}
           </p>
         </Link>

@@ -100,7 +100,7 @@ export const SlideComponent = ({
           </div>
         )}
         {animation && (
-          <div className="w-full  h-auto relative mb-10 lg:max-w-[75vw]  xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex inset-0 m-auto pointer-events-none">
+          <div className="w-full  h-full relative mb-10 lg:max-w-[75vw]  xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex inset-0 m-auto pointer-events-none">
             {animation}
           </div>
         )}

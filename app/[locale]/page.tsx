@@ -99,14 +99,14 @@ export default function Home() {
           );
         })}
 
-        <section className="h-screen snap-start">
+        <section className="lg:h-screen snap-start">
           <PropuestaValor />
         </section>
         <section className="lg:h-screen snap-start">
           <ProcesoComp />
         </section>
 
-        <section className="lg:h-screen snap-start">
+        <section className="h-fit bg-red-400 lg:h-screen snap-start">
           <Casos />
         </section>
 
