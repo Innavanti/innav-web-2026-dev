@@ -49,7 +49,9 @@ export const PropuestaValor = () => {
           </h1>
         </section>
         <div className="w-full gap-10 flex flex-col h-fit lg:h-full col-start-1 col-end-2 row-start-2 row-end-3">
-          <p className="max-w-sm font-light leading-7">{t("subtitle")}</p>
+          <p className="max-w-sm font-light lg:text-lg leading-7 ">
+            {t("subtitle")}
+          </p>
           <MovingBorderButton
             className="cursor-pointer "
             containerClassName="w-1/2 lg:w-[40%] h-12 lg:h-16 font-semibold uppercase"
@@ -98,14 +100,16 @@ export const ValueCard = ({
 }: GlassCardProps) => {
   return (
     <div
-      className={`relative inline-block text-white shrink-0 snap-start  lg:shrink ${className}`}
+      className={`relative inline-block text-white shrink-0 snap-start lg:shrink ${className}`}
     >
-      <div className="flex flex-col justify-around lg:aspect-45/61 gap-3 w-full lg:min-w-56 lg:max-w-67.5 h-full px-5 py-6 rounded-[0.7rem] bg-white/[0.074] border border-primary-1-50/10 backdrop-blur-xs transition-all duration-300 ease-out hover:shadow-[0_0_20px_1px_#ffbb763f] hover:border-primary-1-50/[0.454]">
+      <div className="flex flex-col justify-evenly lg:aspect-45/61 gap-1 w-full lg:min-w-56 lg:max-w-67.5 h-full px-5 py-6 rounded-[0.7rem] bg-white/[0.074] border border-primary-1-50/10 backdrop-blur-xs transition-all duration-300 ease-out hover:shadow-[0_0_20px_1px_#ffbb763f] hover:border-primary-1-50/[0.454]">
         {icon ? (
           <div className="text-4xl text-primary-1-500 font-font">{icon}</div>
         ) : null}
-        <h1 className="text-md font-bold">{title}</h1>
-        <p className="text-sm opacity-80 hidden lg:block">{desc}</p>
+        <div className="flex flex-col gap-3">
+          <h1 className="text-md font-bold">{title}</h1>
+          <p className="text-sm opacity-80 hidden lg:block">{desc}</p>
+        </div>
       </div>
     </div>
   );

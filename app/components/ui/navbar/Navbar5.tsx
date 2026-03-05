@@ -96,7 +96,7 @@ const ServiceButton = ({ className }: { className?: string }) => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="w-60 outline bg-white/10 backdrop-blur-lg flex flex-col items-start gap-1.5 h-fit absolute top-[150%] inset-x-0 m-auto rounded-sm overflow-hidden font-light outline-primary-2-500 p-2"
+              className="w-60 outline bg-primary-3-900/95 backdrop-blur-lg flex flex-col items-start gap-1.5 h-fit absolute top-[150%] inset-x-0 m-auto rounded-sm overflow-hidden font-light outline-primary-2-500 p-2"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -130,6 +130,7 @@ export const NavMobile = ({
   MenuList: {
     title: string;
     href: string;
+    target?: string;
   }[];
 }) => {
   const t = useTranslations("nav");
@@ -177,9 +178,11 @@ export const NavMobile = ({
               <section className="w-full h-full flex flex-col justify-around">
                 {MenuList.map((item) => (
                   <Link
+                    onClick={() => setisOpen(false)}
                     key={item.title}
                     href={item.href}
-                    className={`relative text-white transition-all duration-100 ease-in-out text-3xl`}
+                    target={item.target}
+                    className={`relative text-white transition-all duration-100 ease-in-out text-3xl z-10 pointer-events-auto`}
                   >
                     <h1>{item.title}</h1>
                   </Link>

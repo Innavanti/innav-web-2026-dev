@@ -106,7 +106,7 @@ export default function Home() {
           <ProcesoComp />
         </section>
 
-        <section className="h-fit bg-red-400 lg:h-screen snap-start">
+        <section className="h-fit lg:h-screen snap-start">
           <Casos />
         </section>
 

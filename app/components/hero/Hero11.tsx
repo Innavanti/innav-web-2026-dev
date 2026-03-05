@@ -372,20 +372,9 @@ export const HomeButton = ({
   return (
     <>
       <div className="group z-30 relative bg-white/20 backdrop-blur-xs rounded-full outline outline-white/10 hover:outline-primary-1-500 w-full lg:min-w-56 h-full transition-all duration-300 cursor-pointer">
-        {/* Gradient Border Layer */}
-        {/* <div
-          className="hidden absolute inset-0 p-0.5 rounded-full"
-          style={{
-            background: "linear-gradient(to bottom, #00A6F4, #615FFF)",
-            WebkitMask:
-              "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-            WebkitMaskComposite: "xor",
-            maskComposite: "exclude",
-          }}
-        /> */}
-
+        {/* Mobile version */}
         <Link
-          className="lg:hidden relative flex justify-center items-center text-base font-semibold gap-2 px-3 py-3 rounded-full w-full h-full overflow-hidden not-visited:text-white"
+          className="lg:hidden relative text-sm flex justify-center items-center font-semibold gap-2 px-3 py-3 rounded-full w-full h-full overflow-hidden not-visited:text-white"
           href={hrefMobile}
         >
           <div>{icon}</div>

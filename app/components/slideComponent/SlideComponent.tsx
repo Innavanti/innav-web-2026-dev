@@ -80,7 +80,7 @@ export const SlideComponent = ({
         {/* Title */}
         <div className="w-full lg:m-0 h-fit lg:w-fit lg:h-fit relative flex lg:absolute left-[0%] lg:top-[15%]">
           <motion.h1
-            className="text-4xl lg:text-7xl uppercase font-semibold"
+            className="text-[34px] lg:text-7xl uppercase font-semibold"
             style={{ scale: textScale }}
           >
             {title}

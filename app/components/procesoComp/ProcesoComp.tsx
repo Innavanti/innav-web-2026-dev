@@ -59,36 +59,9 @@ export const ProcesoComp = () => {
 
     let raf = 0;
 
-    // const pickCentre = () => {
-    //   const centreY = window.innerHeight / 2;
-
-    //   let bestIdx = 0;
-    //   let bestDist = Number.POSITIVE_INFINITY;
-
-    //   for (let i = 0; i < COUNT; i++) {
-    //     const el = itemRefs.current[i];
-    //     if (!el) continue;
-
-    //     const r = el.getBoundingClientRect();
-    //     const elCentreY = r.top + r.height / 2;
-    //     const dist = Math.abs(elCentreY - centreY);
-
-    //     if (dist < bestDist) {
-    //       bestDist = dist;
-    //       bestIdx = i;
-    //     }
-    //   }
-
-    //   setActiveIndex(bestIdx);
-    // };
-
     const onScroll = () => {
       cancelAnimationFrame(raf);
-      // raf = requestAnimationFrame(pickCentre);
     };
-
-    // initial pick
-    // pickCentre();
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
@@ -149,7 +122,7 @@ export const ProcesoComp = () => {
           <h1 className="w-full lg:w-1/2 font-bold text-3xl lg:text-5xl">
             {t("title")}
           </h1>
-          <p className="w-full max-w-80 font-light leading-5 lg:leading-7">
+          <p className="w-full max-w-80 font-light leading-5 lg:leading-7 lg:text-lg">
             {t("subtitle")}
           </p>
         </div>
@@ -231,10 +204,10 @@ export const ProcesoComp = () => {
           />
         </motion.ul>
 
-        <p className="w-full text-[18px] hidden lg:block">
-          {t("bottomText.1")}
-          <span className="text-white font-bold">{t("bottomText.2")}</span>
-        </p>
+        <div className="w-full text-[18px] hidden z-10 gap-1">
+          <p>{t("bottomText.1")}</p>
+          <p className="text-white font-bold">{t("bottomText.2")}</p>
+        </div>
       </article>
     </main>
   );

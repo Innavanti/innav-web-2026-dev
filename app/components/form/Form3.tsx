@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import SocialButton from "./SocialButton";
@@ -11,19 +11,13 @@ import Image from "next/image";
 const SocialMedia = [
   {
     name: "Whatsapp",
-    href: "https://api.whatsapp.com/send?phone=+56923592929",
+    href: "https://wa.me/523320785564",
     icon: "/assets/socials/whatsapp.svg",
     className: "bg-[#25D366]/80",
   },
   {
-    name: "Facebook",
-    href: "https://www.facebook.com/innavanti/",
-    icon: "/assets/socials/fb.svg",
-    className: "bg-[#1877F2]/80",
-  },
-  {
     name: "Instagram",
-    href: "https://www.instagram.com/innavanti/",
+    href: "https://www.instagram.com/innavanti.oficial/",
     icon: "/assets/socials/ig.svg",
     className:
       "bg-gradient-to-b from-[#5F4BC6]/80 via-[#9E37B8]/80 to-[#D43089]/80",
@@ -35,13 +29,13 @@ export const Form3 = () => {
   return (
     <article
       id="contacto"
-      className="w-screen h-fit min-h-screen lg:h-screen flex relative flex-row justify-center items-center py-[15%] px-[5vw] lg:px-[10vw] text-white"
+      className="w-screen h-fit  min-h-screen lg:h-screen flex relative flex-row justify-center items-center pt-[15%] pb-[7%] lg:py-[15%] px-[5vw] lg:px-[10vw] text-white"
     >
-      <div className="w-full h-full lg:max-h-[50vh] flex flex-col lg:flex-row gap-16 py-7 lg:py-0 items-stretch">
-        <section className="w-full flex flex-col ">
+      <div className="w-full h-full lg:max-h-[50vh] flex flex-col lg:flex-row gap-16 py-7 lg:py-0 items-stretch relative">
+        <section className="w-full flex flex-col">
           <div className="w-full h-full flex flex-col gap-3 lg:gap-10 justify-between">
             <h1 className="text-3xl lg:text-5xl font-bold">{t("title")}</h1>
-            <div className="w-full h-fit flex flex-col gap-7">
+            <div className="w-full h-fit flex flex-col gap-7 lg:text-lg">
               <p className="text-white lg:max-w-2/3 font-light lg:leading-7">
                 {t("subtitle")}
               </p>
@@ -56,11 +50,11 @@ export const Form3 = () => {
           <GradientForm />
         </section>
         <MediaSection className="lg:hidden" />
+        <p className="w-fit h-fit bottom-2  inset-x-0 m-auto absolute text-xs lg:text-base">
+          <span>&#169; </span>
+          {t("copyright")}
+        </p>
       </div>
-      <p className="w-fit h-fit bottom-2  inset-x-0 m-auto absolute text-xs lg:text-base">
-        <span>&#169; </span>
-        {t("copyright")}
-      </p>
     </article>
   );
 };
