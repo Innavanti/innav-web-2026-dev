@@ -70,3 +70,20 @@ body {
   background-size: 140% 140%;
   background-position: center;
 }
+
+
+ /* -------------------- ANIMATIONS -------------------- */
+@keyframes FadeFrames
+{
+    from  { opacity: 0; }
+    to    { opacity: 1; }
+}
+
+.Fade-In
+{
+    animation: FadeFrames linear 1;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-delay: 1s;
+}
