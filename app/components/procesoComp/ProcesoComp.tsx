@@ -22,7 +22,7 @@ export const ProcesoComp = () => {
   const COUNT = 5;
   const INTERVAL_MS = 900;
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const paused = hoverIndex !== null;
 
