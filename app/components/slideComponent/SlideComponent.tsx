@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { IoIosArrowForward } from "react-icons/io";
 
 type Solution = {
   type?: string;
@@ -113,10 +114,9 @@ export const SlideComponent = ({
         >
           <div className="relative flex flex-row justify-between">
             {solution?.type && (
-              <div className="lg:flex flex-row gap-4 hidden lg:text-lg">
-                <p className="outline outline-primary-1-500 px-2 rounded-full h-fit">
-                  {solution.type}
-                </p>
+              <div className="lg:flex flex-row gap-2 hidden lg:text-lg items-center">
+                <p className="">{solution.type}</p>
+                <IoIosArrowForward />
                 <p>{solution.title}</p>
               </div>
             )}

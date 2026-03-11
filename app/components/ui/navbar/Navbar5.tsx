@@ -14,11 +14,6 @@ export const Navbar5 = () => {
   const t = useTranslations("nav");
   const MenuList = [
     {
-      title: t("menuList.soluciones"),
-      href: "#services",
-      className: "lg:hidden",
-    },
-    {
       title: t("menuList.enfoque"),
       href: "#enfoque",
     },
@@ -60,7 +55,13 @@ export const Navbar5 = () => {
   );
 };
 
-const ServiceButton = ({ className }: { className?: string }) => {
+const ServiceButton = ({
+  className,
+  setMainOpen,
+}: {
+  className?: string;
+  setMainOpen?: (open: boolean) => void;
+}) => {
   const t = useTranslations("nav");
   const solutions = [
     {
@@ -83,11 +84,52 @@ const ServiceButton = ({ className }: { className?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
+      {/*Mobile Service Button */}
+
       <button
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        className={`relative flex flex-row items-center gap-1 hover:outline-2 outline-0 text-white/70 hover:text-white hover:font-semibold font-light outline-primary-2-500 px-3 py-1 rounded-full transition-all duration-100 ease-in-out ${className}`}
+        className={`relative lg:hidden flex flex-col items-start gap-1 text-white transition-all duration-100 ease-in-out text-3xl z-10 pointer-events-auto ${className}`}
+      >
+        <div className="flex flex-row gap-1">
+          <h1>{t("soluciones.title")}</h1>
+
+          <IoIosArrowDown
+            className={`${isOpen ? "rotate-180" : "rotate-0"} transition-all duration-200 ease-in-out`}
+          />
+        </div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className=" flex flex-col  gap-1.5 h-fit overflow-hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <ul className=" text-sm gap-1 flex flex-col">
+                {solutions.map((item) => (
+                  <Link
+                    onClick={() => setMainOpen && setMainOpen(false)}
+                    href={item.href}
+                    className="py-1.5 w-full text-start text-white/75 text-lg transition-all duration-200 ease-in-out rounded-lg"
+                    key={item.title}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </button>
+      {/*Desktop Service Button */}
+      <button
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+        className={`hidden relative lg:flex flex-row items-center gap-1 hover:outline-2 outline-0 text-white/70 hover:text-white hover:font-semibold font-light outline-primary-2-500 px-3 py-1 rounded-full transition-all duration-100 ease-in-out ${className}`}
       >
         <p className="lg:text-lg">{t("soluciones.title")}</p>
         <IoIosArrowDown
@@ -96,7 +138,7 @@ const ServiceButton = ({ className }: { className?: string }) => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="w-60 outline bg-primary-3-900/95 backdrop-blur-lg flex flex-col items-start gap-1.5 h-fit absolute top-[150%] inset-x-0 m-auto rounded-sm overflow-hidden font-light outline-primary-2-500 p-2"
+              className="w-60 outline bg-primary-3-900/95 backdrop-blur-md flex flex-col items-start gap-1.5 h-fit absolute top-[150%] inset-x-0 m-auto rounded-sm overflow-hidden font-light outline-primary-2-500 p-2"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -176,6 +218,7 @@ export const NavMobile = ({
               }}
             >
               <section className="w-full h-full flex flex-col justify-around">
+                <ServiceButton setMainOpen={setisOpen} />
                 {MenuList.map((item) => (
                   <Link
                     onClick={() => setisOpen(false)}

@@ -16,41 +16,36 @@ export const ProcesoComp = () => {
 
   // viewport detection
   const sectionRef = useRef<HTMLElement | null>(null);
-  const inView = useInView(sectionRef, { amount: 0.35 });
+  const inView = useInView(sectionRef, { amount: 0.35, once: true });
 
   // auto spotlight
   const COUNT = 5;
   const INTERVAL_MS = 900;
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const paused = hoverIndex !== null;
 
   const reducedMotion = useReducedMotion();
 
-  // --- mobile centre-focus detection ---
-  const itemRefs = useRef<Array<HTMLLIElement | null>>([]);
-  const setItemRef = (idx: number) => (el: HTMLLIElement | null) => {
-    itemRefs.current[idx] = el;
-  };
-
   const [isMobile, setIsMobile] = useState(false);
 
   // Auto-advance spotlight only while in view and not hovered
+
   useEffect(() => {
-    if (!inView) return;
-    if (reducedMotion) return;
-    if (paused) return;
+    if (!inView || reducedMotion || paused || isMobile) return;
 
-    // On mobile we don't cycle — the centre card will drive activeIndex
-    if (isMobile) return;
+    if (activeIndex === -1) return;
 
-    const id = window.setInterval(() => {
-      setActiveIndex((i) => (i + 1) % COUNT);
+    const id = window.setTimeout(() => {
+      setActiveIndex((i) => {
+        if (i >= COUNT - 1) return -1;
+        return i + 1;
+      });
     }, INTERVAL_MS);
 
-    return () => window.clearInterval(id);
-  }, [inView, paused, reducedMotion, isMobile]);
+    return () => window.clearTimeout(id);
+  }, [inView, reducedMotion, paused, isMobile, activeIndex]);
 
   useEffect(() => {
     if (!inView) return;
@@ -74,7 +69,7 @@ export const ProcesoComp = () => {
   }, [inView, isMobile, paused]);
 
   // Which card is "spotlighted" right now:
-  const spotlightIndex = hoverIndex ?? activeIndex;
+  const spotlightIndex = isMobile ? -1 : (hoverIndex ?? activeIndex);
 
   // nice stagger fade-in when section first becomes visible
   const containerVariants = useMemo(
@@ -115,7 +110,7 @@ export const ProcesoComp = () => {
     <main
       id="proceso"
       ref={sectionRef}
-      className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24 text-white"
+      className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24 text-white bg-red-400"
     >
       <article className="px-[10vw] flex flex-col items-center justify-center gap-5 lg:gap-10 h-full lg:h-auto">
         <div className="w-full h-fit flex flex-col lg:flex-row items-start justify-between gap-4 z-0">
@@ -128,11 +123,21 @@ export const ProcesoComp = () => {
         </div>
 
         <motion.ul
-          className="w-full h-fit lg:overflow-hidden p-1.5 grid grid-cols-1 grid-rows-none gap-3 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2 py-2"
+          className="w-full h-fit lg:overflow-hidden p-1.5 relative grid grid-cols-1 grid-rows-none gap-3 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2 py-2"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
+          <motion.div
+            className="w-full max-w-0.5  bg-primary-1-900  shadow shadow-primary-1-50/80 absolute m-auto top-0 inset-x-0 rounded-full lg:hidden"
+            initial={{
+              height: "0%",
+            }}
+            animate={{
+              height: inView ? "100%" : "0%",
+            }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
           <GridItem
             index={0}
             spotlighted={spotlightIndex === 0}

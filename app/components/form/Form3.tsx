@@ -50,12 +50,22 @@ export const Form3 = () => {
           <GradientForm />
         </section>
         <MediaSection className="lg:hidden" />
-        <p className="w-fit h-fit bottom-2  inset-x-0 m-auto absolute text-xs lg:text-base">
-          <span>&#169; </span>
-          {t("copyright")}
-        </p>
+        <Copyright className="lg:hidden" />
       </div>
+      <Copyright className="hidden lg:block" />
     </article>
+  );
+};
+
+const Copyright = ({ className }: { className?: string }) => {
+  const t = useTranslations("Form");
+  return (
+    <p
+      className={`w-fit h-fit bottom-2  inset-x-0 m-auto absolute text-xs lg:text-base ${className}`}
+    >
+      <span>&#169; </span>
+      {t("copyright")}
+    </p>
   );
 };
 
