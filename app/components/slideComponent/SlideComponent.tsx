@@ -72,7 +72,7 @@ export const SlideComponent = ({
     <main
       ref={ref}
       id={id}
-      className="w-screen h-screen flex justify-center items-center relative overflow-hidden px-[10vw] text-white"
+      className="w-screen h-screen flex justify-center items-center relative overflow-hidden px-[5vw] text-white"
     >
       <motion.article
         className="w-full h-fit py-20 flex flex-col lg:justify-around lg:gap-0 relative "

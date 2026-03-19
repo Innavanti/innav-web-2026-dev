@@ -89,13 +89,13 @@ export const HeroAnimated = () => {
         `}
       </style>
       <article className="flex flex-col justify-center items-center gap-0 px-[5%] lg:px-0 w-full h-full">
-        <div className="flex flex-col justify-end py-6 w-full h-full font-bold text-3xl lg:text-[36px] text-center uppercase leading-tight">
+        <div className="flex flex-col justify-end py-6 w-full h-full font-bold text-xl lg:text-[36px] text-center uppercase leading-tight">
           <h1 className="">
             {/*  */}
             <span className="text-white font-light">{t("title.3")}</span>
           </h1>
         </div>
-        <div className="relative rounded-b-full w-full max-w-[100vw] h-full max-h-[45vh] overflow-">
+        <div className="relative rounded-b-full w-full max-w-[100vw] h-full max-h-[75vh] lg:max-h-[40vh] overflow-">
           <div
             className="m-auto"
             style={{
@@ -105,7 +105,7 @@ export const HeroAnimated = () => {
           >
             <SparklesSeparator />
           </div>
-          <SparklesCore particleDensity={25} overscanY={220} />
+          <SparklesCore maxSize={1.5} particleDensity={50} overscanY={220} />
         </div>
       </article>
       <section className="bottom-[10%] lg:bottom-[7%] absolute inset-x-0 text-white lg:flex lg:flex-row lg:justify-center justify-items-stretch items-stretch gap-5 lg:gap-10 grid grid-cols-2 auto-rows-fr m-auto px-[3%] lg:px-[10vw] w-full lg:w-fit md:max-w-[70vw] lg:max-w-max lg:max-h-10">
