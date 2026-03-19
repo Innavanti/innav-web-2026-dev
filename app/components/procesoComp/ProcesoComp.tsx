@@ -16,7 +16,7 @@ export const ProcesoComp = () => {
 
   // viewport detection
   const sectionRef = useRef<HTMLElement | null>(null);
-  const inView = useInView(sectionRef, { amount: 0.35, once: true });
+  const inView = useInView(sectionRef, { amount: 0.5, once: true });
 
   // auto spotlight
   const COUNT = 5;
@@ -128,18 +128,9 @@ export const ProcesoComp = () => {
           initial="hidden"
           animate={inView ? "show" : "hidden"}
         >
-          <motion.div
-            className="w-full max-w-0.5  bg-primary-1-900  shadow shadow-primary-1-50/80 absolute m-auto top-0 inset-x-0 rounded-full lg:hidden"
-            initial={{
-              height: "0%",
-            }}
-            animate={{
-              height: inView ? "100%" : "0%",
-            }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-          />
           <GridItem
             index={0}
+            inView
             spotlighted={spotlightIndex === 0}
             variants={itemVariants}
             area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
@@ -154,6 +145,7 @@ export const ProcesoComp = () => {
 
           <GridItem
             index={1}
+            inView
             spotlighted={spotlightIndex === 1}
             variants={itemVariants}
             area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
@@ -168,6 +160,7 @@ export const ProcesoComp = () => {
 
           <GridItem
             index={2}
+            inView
             spotlighted={spotlightIndex === 2}
             variants={itemVariants}
             area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
@@ -182,6 +175,7 @@ export const ProcesoComp = () => {
 
           <GridItem
             index={3}
+            inView
             spotlighted={spotlightIndex === 3}
             variants={itemVariants}
             area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
@@ -196,6 +190,7 @@ export const ProcesoComp = () => {
 
           <GridItem
             index={4}
+            inView
             spotlighted={spotlightIndex === 4}
             variants={itemVariants}
             area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
@@ -206,6 +201,7 @@ export const ProcesoComp = () => {
             description={t("items.5.desc")}
             number="05"
             onHoverChange={(v) => setHoverIndex(v ? 4 : null)}
+            last
           />
         </motion.ul>
 
@@ -229,6 +225,8 @@ interface GridItemProps {
   onHoverChange: (hovering: boolean) => void;
   variants: any;
   liRef?: React.Ref<HTMLLIElement>;
+  last?: boolean;
+  inView?: boolean;
 }
 
 const GridItem = ({
@@ -241,6 +239,9 @@ const GridItem = ({
   onHoverChange,
   variants,
   liRef,
+  last,
+  index,
+  inView,
 }: GridItemProps) => {
   return (
     <motion.li
@@ -259,6 +260,17 @@ const GridItem = ({
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
     >
       <div className="relative h-full rounded-2xl border-[0.5px] border-primary-1-50/40 p-2 md:rounded-3xl md:p-3">
+        <motion.div
+          animate={{
+            height: inView ? "12px" : "0px",
+          }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+            delay: 1.5 + index * 0.5,
+          }}
+          className={`bg-primary-1-100/40 w-0.5 absolute inset-x-0 bottom-0 translate-y-full m-auto ${last ? "hidden" : ""} md:hidden`}
+        />
         {/* Keep your proximity glow ALWAYS, but we’ll “boost” the card visual when spotlighted */}
         <GlowingEffect
           blur={0}
