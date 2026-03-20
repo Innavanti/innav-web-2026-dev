@@ -126,7 +126,7 @@ export const ProcesoComp = () => {
         </div>
 
         <motion.ul
-          className="w-full h-fit bg-red-500 lg:overflow-hidden p-1.5 relative grid grid-cols-1 grid-rows-none gap-3 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2 py-2"
+          className="w-full h-fit lg:overflow-hidden p-1.5 relative grid grid-cols-1 grid-rows-none gap-3 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2 py-2"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "show" : undefined}
