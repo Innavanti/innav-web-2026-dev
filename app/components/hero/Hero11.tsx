@@ -90,9 +90,16 @@ export const HeroAnimated = () => {
       </style>
       <article className="flex flex-col justify-center items-center gap-0 px-[5%] lg:px-0 w-full h-full">
         <div className="flex flex-col justify-end py-6 w-full h-full font-bold text-xl lg:text-[36px] text-center uppercase leading-tight">
-          <h1 className="">
-            {/*  */}
-            <span className="text-white font-light">{t("title.3")}</span>
+          <h1
+            className="bg-clip-text bg-linear-to-b from-primary-1-50 to-primary-3-900/20 text-transparent"
+            style={{
+              animation: "TitleGrowAnimation 1 linear",
+              animationDuration: "1.5s",
+            }}
+          >
+            <span className="text-white lg:text-transparent font-light lg:font-bold">
+              {t("title.3")}
+            </span>
           </h1>
         </div>
         <div className="relative rounded-b-full w-full max-w-[100vw] h-full max-h-[75vh] lg:max-h-[40vh] overflow-">
