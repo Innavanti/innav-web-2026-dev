@@ -34,7 +34,9 @@ export const Form3 = () => {
       <div className="w-full h-full lg:max-h-[50vh] flex flex-col lg:flex-row gap-16 py-7 lg:py-0 items-stretch relative">
         <section className="w-full flex flex-col">
           <div className="w-full h-full flex flex-col gap-3 lg:gap-10 justify-between">
-            <h1 className="text-3xl lg:text-5xl font-bold">{t("title")}</h1>
+            <h1 className="text-3xl lg:text-5xl font-bold uppercase">
+              {t("title")}
+            </h1>
             <div className="w-full h-fit flex flex-col gap-7 lg:text-lg">
               <p className="text-white lg:max-w-2/3 font-light lg:leading-7">
                 {t("subtitle")}

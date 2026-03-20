@@ -106,7 +106,7 @@ export function GlobalBackground({
     <article className="relative">
       {/* BACKGROUND GLOBAL */}
       <motion.div
-        className="pointer-events-none sticky top-0 h-screen w-screen z-0"
+        className="pointer-events-none fixed top-0 h-screen w-screen z-0"
         style={{
           backgroundImage,
           backgroundSize: "140% 140%",

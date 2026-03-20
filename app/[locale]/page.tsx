@@ -27,6 +27,7 @@ export default function Home() {
       title: t("ServicesSection.Services.1.title"),
       // image: "/assets/slides/desarrollo-apps.png",
       animation: <AnimatedBackground_Phone />,
+      header: t("ServicesSection.Services.1.header"),
       solution: {
         type: t("ServicesSection.Services.1.solution.type"),
         title: t("ServicesSection.Services.1.solution.title"),
@@ -52,6 +53,7 @@ export default function Home() {
       title: t("ServicesSection.Services.3.title"),
       // image: "/assets/slides/new-asistentes.png",
       animation: <AnimatedBackground_PhoneNet />,
+      titleClassName: "text-[33px] ",
 
       solution: {
         type: t("ServicesSection.Services.3.solution.type"),
