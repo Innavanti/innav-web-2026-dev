@@ -33,8 +33,7 @@ export const StylesCSS = () => {
 
 export const AnimatedBackground_Phone = () => {
   const className =
-    "absolute drop-shadow-2xl scale-150 md:scale-125 lg:scale-100 w-full h-full object-contain" +
-    " ";
+    "absolute drop-shadow-2xl scale-100  w-full h-full object-contain" + " ";
   const folderPath = "/assets/animated_backgrounds/phone_messages";
   const ImagePaths = [
     "/message1.webp",
@@ -84,9 +83,7 @@ export const AnimatedBackground_Phone = () => {
 };
 
 export const AnimatedBackground_PhoneNet = () => {
-  const className =
-    "absolute w-full h-full object-contain scale-150 md:scale-125 lg:scale-100" +
-    " ";
+  const className = "absolute w-full h-full object-contain scale-100 " + " ";
 
   const folderPath = "/assets/animated_backgrounds/phone_net";
   const ImagePaths = [
@@ -200,9 +197,7 @@ export const AnimatedBackground_PhoneNet = () => {
 };
 
 export const AnimatedBackground_Desktop = () => {
-  const className =
-    "absolute w-full h-full object-contain scale-150 md:scale-125 lg:scale-100 " +
-    " ";
+  const className = "absolute w-full h-full object-contain scale-100  " + " ";
   const folderPath = "/assets/animated_backgrounds/desktop";
 
   const ImagePaths = [
@@ -292,9 +287,7 @@ export const AnimatedBackground_Desktop = () => {
 };
 
 export const AnimatedBackground_Datacenter = () => {
-  const className =
-    "absolute w-full h-full object-contain scale-150 md:scale-125 lg:scale-100 " +
-    " ";
+  const className = "absolute w-full h-full object-contain scale-100  " + " ";
   const imagePath = "/assets/animated_backgrounds/datacenter";
 
   const DataLinkPaths = [

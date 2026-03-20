@@ -16,7 +16,10 @@ export const ProcesoComp = () => {
 
   // viewport detection
   const sectionRef = useRef<HTMLElement | null>(null);
-  const inView = useInView(sectionRef, { amount: 0.5, once: true });
+  const inView = useInView(sectionRef, {
+    amount: 0.15,
+    once: true,
+  });
 
   // auto spotlight
   const COUNT = 5;
@@ -110,7 +113,7 @@ export const ProcesoComp = () => {
     <main
       id="proceso"
       ref={sectionRef}
-      className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24 text-white bg-red-400"
+      className="w-screen h-fit lg:h-full min-h-screen flex justify-center pt-24 text-white"
     >
       <article className="px-[10vw] flex flex-col items-center justify-center gap-5 lg:gap-10 h-full lg:h-auto">
         <div className="w-full h-fit flex flex-col lg:flex-row items-start justify-between gap-4 z-0">
@@ -123,10 +126,10 @@ export const ProcesoComp = () => {
         </div>
 
         <motion.ul
-          className="w-full h-fit lg:overflow-hidden p-1.5 relative grid grid-cols-1 grid-rows-none gap-3 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2 py-2"
+          className="w-full h-fit bg-red-500 lg:overflow-hidden p-1.5 relative grid grid-cols-1 grid-rows-none gap-3 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2 py-2"
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "show" : "hidden"}
+          animate={inView ? "show" : undefined}
         >
           <GridItem
             index={0}
@@ -259,7 +262,7 @@ const GridItem = ({
       }
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
     >
-      <div className="relative h-full rounded-2xl border-[0.5px] border-primary-1-50/40 p-2 md:rounded-3xl md:p-3">
+      <div className="relative h-full rounded-2xl border-[0.5px] border-primary-1-50/40 p-2 md:rounded-3xl md:p-3 z-999">
         <motion.div
           animate={{
             height: inView ? "12px" : "0px",

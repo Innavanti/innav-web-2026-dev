@@ -58,6 +58,7 @@
       "buttonText": "EXPLORE THE SOLUTION",
       "Services": {
         "1": {
+          "header": "Solutions designed to integrate, scale and operate with control.",
           "title": "App Development",
           "solution": {
             "type": "Solutions",

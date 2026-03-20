@@ -18,12 +18,15 @@ type Solution = {
 
 type SlideProps = {
   id: string;
+  header?: string;
   title?: string;
   image?: string;
   solution?: Solution;
   href?: string;
   target?: string;
   animation?: React.ReactNode;
+
+  titleClassName?: string;
 
   /** ✅ importantísimo: el contenedor que scrollea (el <main> con overflow-y-auto) */
   scrollRef: RefObject<HTMLElement | null>;
@@ -36,8 +39,10 @@ export const SlideComponent = ({
   href,
   target,
   scrollRef,
+  header,
   id,
   animation,
+  titleClassName,
 }: SlideProps) => {
   const t = useTranslations("HomePage.ServicesSection");
 
@@ -75,13 +80,14 @@ export const SlideComponent = ({
       className="w-screen h-screen flex justify-center items-center relative overflow-hidden px-[5vw] text-white"
     >
       <motion.article
-        className="w-full h-fit py-20 flex flex-col lg:justify-around lg:gap-0 relative "
+        className="w-full h-[80%] lg:h-fit py-5 lg:py-20 flex flex-col  lg:justify-around lg:gap-0 relative"
         style={{ scale, y }}
       >
         {/* Title */}
-        <div className="w-full lg:m-0 h-fit lg:w-fit lg:h-fit relative flex lg:absolute left-[0%] lg:top-[15%]">
+        <div className="w-full flex flex-col lg:m-0 h-fit lg:w-fit lg:h-fit relative lg:absolute left-[0%] lg:top-[15%]">
+          <p className="text-primary-1-500 lg:text-lg">{header}</p>
           <motion.h1
-            className="text-[34px] lg:text-7xl uppercase font-semibold"
+            className={`text-[34px] lg:text-7xl uppercase font-semibold ${titleClassName}`}
             style={{ scale: textScale }}
           >
             {title}

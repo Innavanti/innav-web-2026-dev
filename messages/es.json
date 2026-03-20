@@ -59,6 +59,7 @@
       "buttonText": "EXPLORAR LA SOLUCIÓN",
       "Services": {
         "1": {
+          "header": "Soluciones diseñadas para integrarse, escalar y operar con control.",
           "title": "Desarrollo de Apps",
           "solution": {
             "type": "Soluciones",
