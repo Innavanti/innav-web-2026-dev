@@ -69,8 +69,7 @@ export const SlideComponent = ({
 
   // ✅ mejor inView para evitar flicker con snap
   const isVisible = useInView(ref, {
-    amount: 0.7,
-    margin: "-10% 0px -10% 0px",
+    amount: 0.2,
   });
 
   return (
@@ -87,7 +86,7 @@ export const SlideComponent = ({
         <div className="w-full flex flex-col lg:m-0 h-fit lg:w-fit lg:h-fit relative lg:absolute left-[0%] lg:top-[15%]">
           <p className="text-primary-1-500 lg:text-lg">{header}</p>
           <motion.h1
-            className={`text-[34px] lg:text-7xl uppercase font-semibold ${titleClassName}`}
+            className={`text-3xl lg:text-7xl uppercase font-semibold ${titleClassName}`}
             style={{ scale: textScale }}
           >
             {title}
@@ -114,9 +113,10 @@ export const SlideComponent = ({
 
         {/* Content fades in/out */}
         <motion.div
-          animate={{ opacity: isVisible ? 1 : 0 }}
+          animate={isVisible ? "show" : undefined}
+          // animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="relative lg:absolute w-full inset-x-0 m-auto h-fit bottom-0"
+          className="relative lg:absolute w-full inset-x-0 m-auto h-fit bottom-0  z-30"
         >
           <div className="relative flex flex-row justify-between">
             {solution?.type && (
