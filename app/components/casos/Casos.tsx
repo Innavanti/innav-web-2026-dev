@@ -49,7 +49,7 @@ export const Casos = () => {
       <div className="w-full flex h-full lg:max-h-[70vh] relative flex-col lg:flex-row justify-around px-[5vw] lg:px-[10vw] gap-6 lg:gap-10 pt-24 lg:pt-24 z-30">
         <section className="w-full h-fit lg:w-1/2 lg:h-full lg:px-2 flex flex-col justify-between">
           <div className="text-lg gap-4 lg:gap-10 flex flex-col">
-            <h1 className="text-2xl lg:text-5xl font-bold">{t("title")}</h1>
+            <h1 className="text-3xl lg:text-5xl font-bold">{t("title")}</h1>
             <p className="text-base leading-5 font-light lg:leading-7 lg:text-lg">
               {t("subtitle")}
             </p>
@@ -104,7 +104,7 @@ export const Caso = ({ title, desc, type, image }: CasoProps) => {
         </div>
       )}
       <div className="flex flex-row items-center gap-3">
-        <h1 className="text-2xl font-semibold uppercase">{title}</h1>
+        <h1 className="text-xl font-semibold uppercase">{title}</h1>
         <FiArrowRight className="text-primary-1-500 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out " />
       </div>
       <div className="flex flex-col md:flex-row gap-2 relative w-fit items-start text-white/70 font-thin">

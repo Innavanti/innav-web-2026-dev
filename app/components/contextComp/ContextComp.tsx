@@ -66,7 +66,7 @@ export const ContextComp = ({
     >
       <article className="w-screen h-fit lg:h-screen sticky top-0 flex flex-col lg:flex-row pt-24 pb-4 px-[2vw] lg:pt-20 lg:px-[10vw] gap-3 text-start items-center justify-center text-white ">
         <div className="w-full h-fit flex flex-col lg:flex-row items-stretch justify-center gap-3 lg:gap-0 z-0">
-          <section className="w-full flex items-center text-[34px] lg:text-7xl pr-5 lg:leading-20 leading-10 font-bold">
+          <section className="w-full flex items-center text-3xl lg:text-7xl pr-5 lg:leading-20 leading-10 font-bold">
             <h1>{t("text")}</h1>
           </section>
 

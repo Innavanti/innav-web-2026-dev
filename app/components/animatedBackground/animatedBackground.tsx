@@ -43,7 +43,7 @@ export const AnimatedBackground_Phone = () => {
   ];
 
   return (
-    <div className="relative w-full h-auto">
+    <div className="relative w-full h-auto lg:translate-y-10">
       <StylesCSS />
       <Glow className={className} />
 
@@ -318,7 +318,7 @@ export const AnimatedBackground_Datacenter = () => {
     { path: "/internal-cpu.webp" },
   ];
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full lg:translate-y-10">
       <StylesCSS />
       <Glow className={className} />
       <EnergyContainer viewBox="0 0 1080 1080" className=" ">

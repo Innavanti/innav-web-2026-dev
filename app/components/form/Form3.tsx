@@ -29,7 +29,7 @@ export const Form3 = () => {
   return (
     <article
       id="contacto"
-      className="w-screen h-fit  min-h-screen lg:h-screen flex relative flex-row justify-center items-center pt-[15%] pb-[7%] lg:py-[15%] px-[5vw] lg:px-[10vw] text-white"
+      className="w-screen h-fit  min-h-screen lg:h-screen flex relative flex-row justify-center items-center pt-[15%] pb-[15px] lg:py-[15%] px-[5vw] lg:px-[10vw] text-white"
     >
       <div className="w-full h-full lg:max-h-[50vh] flex flex-col lg:flex-row gap-16 py-7 lg:py-0 items-stretch relative">
         <section className="w-full flex flex-col">
@@ -52,9 +52,8 @@ export const Form3 = () => {
           <GradientForm />
         </section>
         <MediaSection className="lg:hidden" />
-        <Copyright className="lg:hidden" />
       </div>
-      <Copyright className="hidden lg:block" />
+      <Copyright className="hidden lg:block lg:bottom-2 " />
     </article>
   );
 };
@@ -63,7 +62,7 @@ const Copyright = ({ className }: { className?: string }) => {
   const t = useTranslations("Form");
   return (
     <p
-      className={`w-fit h-fit bottom-2  inset-x-0 m-auto absolute text-xs lg:text-base ${className}`}
+      className={`w-fit h-fit  inset-x-0 m-auto absolute text-xs lg:text-base ${className}`}
     >
       <span>&#169; </span>
       {t("copyright")}
@@ -82,6 +81,7 @@ export const MediaSection = ({ className }: { className?: string }) => {
           <SocialButton key={i} {...link} />
         ))}
       </div>
+      <Copyright className="lg:hidden relative bottom-0" />
     </div>
   );
 };

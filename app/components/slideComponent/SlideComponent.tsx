@@ -69,25 +69,24 @@ export const SlideComponent = ({
 
   // ✅ mejor inView para evitar flicker con snap
   const isVisible = useInView(ref, {
-    amount: 0.7,
-    margin: "-10% 0px -10% 0px",
+    amount: 0.2,
   });
 
   return (
     <main
       ref={ref}
       id={id}
-      className="w-screen h-screen flex justify-center items-center relative overflow-hidden px-[5vw] text-white"
+      className="w-screen h-screen flex justify-center items-center relative overflow-hidden px-[10vw] text-white"
     >
       <motion.article
         className="w-full h-[80%] lg:h-fit py-5 lg:py-20 flex flex-col  lg:justify-around lg:gap-0 relative"
         style={{ scale, y }}
       >
         {/* Title */}
-        <div className="w-full flex flex-col lg:m-0 h-fit lg:w-fit lg:h-fit relative lg:absolute left-[0%] lg:top-[15%]">
+        <div className="w-full flex flex-col lg:m-0 h-fit lg:w-fit lg:h-fit relative lg:absolute left-[0%] lg:top-[10%]">
           <p className="text-primary-1-500 lg:text-lg">{header}</p>
           <motion.h1
-            className={`text-[34px] lg:text-7xl uppercase font-semibold ${titleClassName}`}
+            className={`text-3xl lg:text-7xl uppercase font-semibold ${titleClassName}`}
             style={{ scale: textScale }}
           >
             {title}
@@ -107,23 +106,26 @@ export const SlideComponent = ({
           </div>
         )}
         {animation && (
-          <div className="w-full  h-full relative mb-10 lg:max-w-[75vw]  xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex inset-0 m-auto pointer-events-none">
+          <div className="w-full  h-full relative mb-10 lg:max-w-[75vw] xl:max-w-[70vw] 2xl:max-w-[50vw] aspect-video flex inset-0 m-auto pointer-events-none">
             {animation}
           </div>
         )}
 
         {/* Content fades in/out */}
         <motion.div
-          animate={{ opacity: isVisible ? 1 : 0 }}
+          animate={isVisible ? "show" : undefined}
+          // animate={{ opacity: isVisible ? 1 : 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="relative lg:absolute w-full inset-x-0 m-auto h-fit bottom-0"
+          className="relative lg:absolute w-full inset-x-0 m-auto h-fit bottom-0  z-30"
         >
           <div className="relative flex flex-row justify-between">
             {solution?.type && (
-              <div className="lg:flex flex-row gap-2 hidden lg:text-lg items-center">
-                <p className="">{solution.type}</p>
-                <IoIosArrowForward />
-                <p>{solution.title}</p>
+              <div className="lg:flex  gap-2 hidden lg:text-lg items-start">
+                <div className="flex-row flex items-center h-fit">
+                  <p className="">{solution.type}</p>
+                  <IoIosArrowForward />
+                  <p>{solution.title}</p>
+                </div>
               </div>
             )}
 
