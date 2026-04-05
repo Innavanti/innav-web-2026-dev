@@ -210,7 +210,10 @@
       "emailPH": "you@company.com",
       "message": "Brief Description of the Challenge",
       "messagePH": "Describe your project or business need",
-      "send": "Submit Inquiry"
+      "send": "Submit Inquiry",
+      "success": "Message sent successfully!",
+      "error": "Error sending the message. Please contact us via WhatsApp.",
+      "whatsapp": "Contact via WhatsApp"
     },
     "copyright": "2026 Innavanti. All rights reserved."
   }

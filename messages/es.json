@@ -212,7 +212,10 @@
       "emailPH": "tu@empresa.com",
       "message": "Breve descripción del reto",
       "messagePH": "Describe tu proyecto o necesidad empresarial",
-      "send": "Enviar consulta"
+      "send": "Enviar consulta",
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "Error al enviar el mensaje. Por favor, contáctanos por WhatsApp.",
+      "whatsapp": "Contactar por WhatsApp"
     },
     "copyright": "2026 Innavanti. Todos los derechos reservados."
   }
